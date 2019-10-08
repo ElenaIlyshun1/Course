@@ -4,13 +4,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Autorization.ViewModels;
+using WebHelsi.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebHelsi.Entities;
 
-namespace Autorization.Controllers
+namespace WebHelsi.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]

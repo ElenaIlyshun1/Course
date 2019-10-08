@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebHelsi.Entities;
 
-namespace Autorization.Entities
+namespace WebHelsi.Entities
 {
     public class SeederDB
     {

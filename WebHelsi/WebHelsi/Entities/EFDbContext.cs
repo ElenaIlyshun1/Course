@@ -13,11 +13,11 @@ namespace WebHelsi.Entities
     IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
 
-        public DbSet<ListDoctors> Doctors { get; set; }
-        public DbSet<Cities> Cities { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
-        public DbSet<Clients> Clients { get; set; }
+        public DbSet<Client> Clients { get; set; }
         public EFDbContext(DbContextOptions<EFDbContext> options)
             : base(options)
         {

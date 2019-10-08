@@ -8,21 +8,15 @@ using System.Threading.Tasks;
 namespace WebHelsi.Entities
 {
     [Table("tblCities")]
-    public class Cities
+    public class City
     {
         [Key]
         public int Id { get; set; }
 
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
+        public virtual ICollection<Clinic> Clinics { get; set; }
 
-        [ForeignKey("Clinic")]
-        public int ClinicId { get; set; }
-        public virtual Clinic Clinic { get; set; }
-
-        [ForeignKey("ListDoctors")]
-        public int ListDoctorsId { get; set; }
-        public virtual ListDoctors ListDoctors { get; set; }
 
     }
 }

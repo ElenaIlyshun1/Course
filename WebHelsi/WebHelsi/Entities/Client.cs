@@ -7,16 +7,21 @@ using System.Threading.Tasks;
 
 namespace WebHelsi.Entities
 {
-    [Table("tblSpecialization")]
-    public class Specialization
+    [Table("tblClients")]
+    public class Client
     {
         [Key]
         public int Id { get; set; }
-
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
-        public virtual ICollection<Doctor> Doctors { get; set; }
 
+        public string Surname { get; set; }
+        public string Spetialization { get; set; }
+
+        public DateTime DateBirthday { get; set; }
+
+        [ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
+        public virtual Doctor Doctor { get; set; }
     }
-
 }
