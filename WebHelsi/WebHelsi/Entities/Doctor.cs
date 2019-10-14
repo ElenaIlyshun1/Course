@@ -26,7 +26,6 @@ namespace WebHelsi.Entities
         [ForeignKey("Specialization")]
         public int SpecializationId { get; set; }
         public virtual Specialization Specialization { get; set; }
-
         
         public virtual ICollection<Client> Clients { get; set; }
     }
