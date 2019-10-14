@@ -115,7 +115,37 @@ namespace WebHelsi.Entities
                         });
                         context.SaveChanges();
                     }
-                }          
+                }
+                #endregion
+
+                #region Cliniks            
+                Dictionary<string, string> clinics = new Dictionary<string, string> {
+                    {"CITY POLYCLINIC №2", "Rivne" },
+                    {"CITY POLYCLINIC №3", "Rivne" },
+                };
+                foreach (var h in clinics)
+                {
+                    //шукаємо місто по назві
+                    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
+                    var a = context.Cities.SingleOrDefault(x => x.Name == h.Value);
+                    if (a==null)
+                    {
+                        var b = context.Clinics.SingleOrDefault(x => x.Name == h.Key);
+                        {
+                            if (b==null)
+                            {
+                                context.Clinics.Add(new Clinic
+                                {
+                                    Name = h.Key,
+                                    CityId = a.Id,
+                                    Street = "Soborna"
+                                });
+                                context.SaveChanges();
+                            }
+
+                        }
+                    }
+                }
                 #endregion
 
             }
