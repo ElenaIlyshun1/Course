@@ -15,7 +15,6 @@ namespace WebHelsi.Entities
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Spetialization { get; set; }
         public DateTime DateBirthday { get; set; }
         public string ImageDoctor { get; set; }
 

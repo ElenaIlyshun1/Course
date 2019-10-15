@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebHelsi.Entities;
+using WebHelsi.ViewModel;
 
 namespace WebHelsi.Entities
 {
@@ -86,10 +87,10 @@ namespace WebHelsi.Entities
                     "Rivne", "Kyiv","Kharkiv","Odessa", "Dnipro","Zaporizhia","Lviv","Kryvyi Rih","Mykolaiv","Mariupol",
                     "Vinnytsia","Kherson","Poltava","Chernihiv","Cherkasy","Khmelnytskyi"
                 };
-                foreach(var c in cities)
+                foreach (var c in cities)
                 {
-                    var s = context.Cities.SingleOrDefault(x=> x.Name== c);
-                    if(s==null)
+                    var s = context.Cities.SingleOrDefault(x => x.Name == c);
+                    if (s == null)
                     {
                         context.Cities.Add(new City
                         {
@@ -118,27 +119,41 @@ namespace WebHelsi.Entities
                 }
                 #endregion
 
-                #region Cliniks            
-                Dictionary<string, string> clinics = new Dictionary<string, string> {
-                    {"CITY POLYCLINIC №2", "Rivne" },
-                    {"CITY POLYCLINIC №3", "Rivne" },
+                #region Cliniks
+                
+                List<ClinicViewModels> clinics = new List<ClinicViewModels> {
+                    new ClinicViewModels { Name="Міська Поліклініка №2", City = "Rivne", Street="вул.Грушевського"},
+                     new ClinicViewModels { Name="Міська Поліклініка №3", City = "Rivne", Street="вул.Макарова"},
+                      new ClinicViewModels { Name="Обласна Лікарня", City = "Rivne", Street="вул.Київська"},
+                       new ClinicViewModels { Name="Міська Лікарня", City = "Rivne", Street="вул.Карнаухова"},
+                       //---------------------------------------------------------------------------------------
+                       new ClinicViewModels { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Kyiv", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
+                     new ClinicViewModels { Name="ДКЛ №4 Солом'янського району", City = "Kyiv", Street="вул. Стражеско Академіка 6А"},
+                      new ClinicViewModels { Name="ДКЛ №7 Печерського району", City = "Kyiv", Street="вул. Підвисоцького Професора 4Б"},
+                       new ClinicViewModels { Name="ДКЛ №9 Подільського району", City = "Kyiv", Street="вул. Копилівська 1/7"},
+                             //---------------------------------------------------------------------------------------
+                       new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Odessa", Street="вул. Левітана 62"},
+                     new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Odessa", Street="вул. Заболотного Академіка 32"},
+                        new ClinicViewModels { Name="Одеська міська лікарня №8", City = "Odessa", Street="вул. Фонтанська дорога 110"},
+                       new ClinicViewModels { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Odessa", Street="вул. Ільфа та Петрова 8А"},
+
                 };
                 foreach (var h in clinics)
                 {
                     //шукаємо місто по назві
                     //шукаємо клініку по назві, якщо клінікі немає, то додаємо
-                    var a = context.Cities.SingleOrDefault(x => x.Name == h.Value);
-                    if (a==null)
+                    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
+                    if (findCity != null)
                     {
-                        var b = context.Clinics.SingleOrDefault(x => x.Name == h.Key);
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId==findCity.Id);
                         {
-                            if (b==null)
+                            if (findClinic == null)
                             {
                                 context.Clinics.Add(new Clinic
                                 {
-                                    Name = h.Key,
-                                    CityId = a.Id,
-                                    Street = "Soborna"
+                                    Name = h.Name,
+                                    CityId = findCity.Id,
+                                    Street = h.Street
                                 });
                                 context.SaveChanges();
                             }
@@ -148,6 +163,38 @@ namespace WebHelsi.Entities
                 }
                 #endregion
 
+                #region Doctors
+
+                List<DoctorViewModel> doctors = new List<DoctorViewModel> {
+                   new DoctorViewModel{Name=" Оксана",Surname="Синюк",DateBirthday=new DateTime(1995,10,12) ,
+                       Spetialization = "Педіатр",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Odessa",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                     //-----------------------------------------------------------------------------------
+                };
+                foreach (var h in doctors)
+                {
+                    //шукаємо місто по назві
+                    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
+                    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
+                    if (findCity != null)
+                    {
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
+                        {
+                            if (findClinic == null)
+                            {
+                                context.Doctors.Add(new Doctor
+                                {
+                                    //Name = h.Name,
+                                    //Surname = h.Surname,
+                                    // = findCity.Id,
+                                    //Street = h.Street
+                                });
+                                context.SaveChanges();
+                            }
+
+                        }
+                    }
+                }
+                #endregion
             }
         }
     }
