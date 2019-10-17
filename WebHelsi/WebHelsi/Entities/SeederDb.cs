@@ -193,7 +193,7 @@ namespace WebHelsi.Entities
                         {
                             if (findClinic != null)
                             {
-                                var findSpetialization = context.Specializations.SingleOrDefault(x => x.Name == h.Spetialization );
+                                var findSpetialization = context.Specializations.SingleOrDefault(x => x.Name == h.Spetialization);
                                 {
                                     if (findSpetialization != null)
                                     {
@@ -222,6 +222,31 @@ namespace WebHelsi.Entities
                     }
                 }
                 #endregion
+
+                //#region Clients
+
+                //List<ClientViewModel> clients = new List<ClientViewModel> {
+                //   new ClientViewModel{Name=" Оксана",Surname="Матвійчук",DateBirthday=new DateTime(1965,10,12) , Email = "oksana1423@gmail.com"},
+                //    new ClientViewModel{Name=" Антон",Surname="Петровський",DateBirthday=new DateTime(1965,10,12) , Email = "retro4235@gmail.com"},
+                //    new ClientViewModel{Name=" Вова",Surname="Михальчук",DateBirthday=new DateTime(1965,10,12) , Email = "vovakozel@gmail.com"},
+
+                //};
+                //foreach (var h in clients)
+                //{
+                //    var findClient = context.Clients.SingleOrDefault(x => x.Name == h.Name && x.Surname == h.Surname);
+                //    if (findClient == null)
+                //    {
+                //        context.Clients.Add(new Client
+                //        {
+                //            Name = h.Name,
+                //            Surname = h.Surname,
+                //            Email = h.Email,
+                //            DateBirthday = h.DateBirthday
+                //        });
+                //        context.SaveChanges();
+                //    }
+                //}
+                //#endregion
             }
         }
     }
