@@ -114,11 +114,11 @@ namespace WebHelsi.Migrations
 
                     b.Property<int>("DoctorId");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(250);
-
-                    b.Property<string>("Spetialization");
 
                     b.Property<string>("Surname");
 
@@ -253,8 +253,6 @@ namespace WebHelsi.Migrations
                         .HasMaxLength(250);
 
                     b.Property<int>("SpecializationId");
-
-                    b.Property<string>("Spetialization");
 
                     b.Property<string>("Surname");
 

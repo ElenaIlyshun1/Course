@@ -14,11 +14,10 @@ namespace WebHelsi.Entities
         public int Id { get; set; }
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
-
         public string Surname { get; set; }
-        public string Spetialization { get; set; }
-
         public DateTime DateBirthday { get; set; }
+        public string Email { get; set; }//замінити в БД
+
 
         [ForeignKey("Doctor")]
         public int DoctorId { get; set; }

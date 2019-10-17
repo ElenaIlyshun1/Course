@@ -67,25 +67,11 @@ namespace WebHelsi.Entities
                 var context = scope.ServiceProvider.GetRequiredService<EFDbContext>();
                 var managerUser = scope.ServiceProvider.GetRequiredService<UserManager<DbUser>>();
                 var managerRole = scope.ServiceProvider.GetRequiredService<RoleManager<DbRole>>();
-                //Seed(managerUser, managerRole);
-                //string name = "i7-7700K";
-                //var prod = context.Products.SingleOrDefault(p => p.Name == name);
-                //if (prod == null)
-                //{
-                //    prod = new DbProduct
-                //    {
-                //        Name = name,
-                //        Price = 10000,
-                //        DateCreate = DateTime.Now
-                //    };
-                //    context.Products.Add(prod);
-                //    context.SaveChanges();
-                //}
-                //var context = scope.ServiceProvider.GetRequiredService<EFDbContext>();
+
                 #region City
                 string[] cities = {
-                    "Rivne", "Kyiv","Kharkiv","Odessa", "Dnipro","Zaporizhia","Lviv","Kryvyi Rih","Mykolaiv","Mariupol",
-                    "Vinnytsia","Kherson","Poltava","Chernihiv","Cherkasy","Khmelnytskyi"
+                    "Рівне", "Київ","Харків","Одеса", "Дніпро","Запоріжжя","Львів","Кривий Ріг","Миколаїв","Маріуполь",
+                    "Вінниця","Херсон","Полтава","Чернігів","Черкаси","Хмельницький"
                 };
                 foreach (var c in cities)
                 {
@@ -102,8 +88,8 @@ namespace WebHelsi.Entities
                 #endregion
                 #region Specialization
                 string[] specializations = {
-                    "Dermatologist", "Family Physician","Pediatrician","Obstetrician", "Surgeon","Psychiatrist","Cardiologist","Endocrinologist",
-                    "Gastroenterologist","Nephrologist","Ophthalmologist","Otolaryngologist","Pulmonologist","Neurologist","Radiologist","Anesthesiologist","Oncologist"
+                    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
+                    "Гастроентеролог","Окуліст","Невропатолог","Травматолог","Пульмонолог","Онколог"
                 };
                 foreach (var h in specializations)
                 {
@@ -120,22 +106,22 @@ namespace WebHelsi.Entities
                 #endregion
 
                 #region Cliniks
-                
+
                 List<ClinicViewModels> clinics = new List<ClinicViewModels> {
-                    new ClinicViewModels { Name="Міська Поліклініка №2", City = "Rivne", Street="вул.Грушевського"},
-                     new ClinicViewModels { Name="Міська Поліклініка №3", City = "Rivne", Street="вул.Макарова"},
-                      new ClinicViewModels { Name="Обласна Лікарня", City = "Rivne", Street="вул.Київська"},
-                       new ClinicViewModels { Name="Міська Лікарня", City = "Rivne", Street="вул.Карнаухова"},
+                    new ClinicViewModels { Name="Міська Поліклініка №2", City = "Рівне", Street="вул.Грушевського"},
+                     new ClinicViewModels { Name="Міська Поліклініка №3", City = "Рівне", Street="вул.Макарова"},
+                      new ClinicViewModels { Name="Обласна Лікарня", City = "Рівне", Street="вул.Київська"},
+                       new ClinicViewModels { Name="Міська Лікарня", City = "Рівне", Street="вул.Карнаухова"},
                        //---------------------------------------------------------------------------------------
-                       new ClinicViewModels { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Kyiv", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
-                     new ClinicViewModels { Name="ДКЛ №4 Солом'янського району", City = "Kyiv", Street="вул. Стражеско Академіка 6А"},
-                      new ClinicViewModels { Name="ДКЛ №7 Печерського району", City = "Kyiv", Street="вул. Підвисоцького Професора 4Б"},
-                       new ClinicViewModels { Name="ДКЛ №9 Подільського району", City = "Kyiv", Street="вул. Копилівська 1/7"},
+                       new ClinicViewModels { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
+                     new ClinicViewModels { Name="ДКЛ №4 Солом'янського району", City = "Київ", Street="вул. Стражеско Академіка 6А"},
+                      new ClinicViewModels { Name="ДКЛ №7 Печерського району", City = "Київ", Street="вул. Підвисоцького Професора 4Б"},
+                       new ClinicViewModels { Name="ДКЛ №9 Подільського району", City = "Київ", Street="вул. Копилівська 1/7"},
                              //---------------------------------------------------------------------------------------
-                       new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Odessa", Street="вул. Левітана 62"},
-                     new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Odessa", Street="вул. Заболотного Академіка 32"},
-                        new ClinicViewModels { Name="Одеська міська лікарня №8", City = "Odessa", Street="вул. Фонтанська дорога 110"},
-                       new ClinicViewModels { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Odessa", Street="вул. Ільфа та Петрова 8А"},
+                       new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса", Street="вул. Левітана 62"},
+                     new ClinicViewModels { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса", Street="вул. Заболотного Академіка 32"},
+                        new ClinicViewModels { Name="Одеська міська лікарня №8", City = "Одеса", Street="вул. Фонтанська дорога 110"},
+                       new ClinicViewModels { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Одеса", Street="вул. Ільфа та Петрова 8А"},
 
                 };
                 foreach (var h in clinics)
@@ -145,7 +131,7 @@ namespace WebHelsi.Entities
                     var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
                     if (findCity != null)
                     {
-                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId==findCity.Id);
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
                         {
                             if (findClinic == null)
                             {
@@ -166,29 +152,70 @@ namespace WebHelsi.Entities
                 #region Doctors
 
                 List<DoctorViewModel> doctors = new List<DoctorViewModel> {
-                   new DoctorViewModel{Name=" Оксана",Surname="Синюк",DateBirthday=new DateTime(1995,10,12) ,
-                       Spetialization = "Педіатр",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Odessa",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                   new DoctorViewModel{Name=" Оксана",Surname="Синюк",DateBirthday=new DateTime(1965,10,12) ,
+                       Spetialization = "Педіатр",Clinic ="Міська Поліклініка №2", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Василь",Surname="Васинюк",DateBirthday=new DateTime(1975,10,11) ,
+                       Spetialization = "Дерматолог",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Тамара",Surname="Олексюк",DateBirthday=new DateTime(1987,08,07) ,
+                       Spetialization = "Отоларинголог",Clinic ="Обласна Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Володимир",Surname="Іванов",DateBirthday=new DateTime(1972,02,05) ,
+                       Spetialization = "Кардіолог",Clinic ="Міська Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Петро",Surname="Симончук",DateBirthday=new DateTime(1978,01,01) ,
+                       Spetialization = "Невропатолог",Clinic ="ДКЛ №4 Солом'янського району", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Степан",Surname="Миколюк",DateBirthday=new DateTime(1968,11,12) ,
+                       Spetialization = "Хірург",Clinic ="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Олена",Surname="Кірчук",DateBirthday=new DateTime(1955,08,02) ,
+                       Spetialization = "Сімейний терапевт",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Тетяна",Surname="Горпинчук",DateBirthday=new DateTime(1959,11,22) ,
+                       Spetialization = "Окуліст",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name="Сергій",Surname="Петрушевський",DateBirthday=new DateTime(1978,09,10) ,
+                       Spetialization = "Дерматолог",Clinic ="Одеська міська лікарня №8", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+
+                    new DoctorViewModel{Name=" Світлана",Surname="Романюк",DateBirthday=new DateTime(1990,10,12) ,
+                       Spetialization = "Ендокринолог",Clinic ="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
                      //-----------------------------------------------------------------------------------
                 };
                 foreach (var h in doctors)
                 {
-                    //шукаємо місто по назві
-                    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
+
                     var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
                     if (findCity != null)
                     {
-                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Clinic && x.CityId == findCity.Id);
                         {
-                            if (findClinic == null)
+                            if (findClinic != null)
                             {
-                                context.Doctors.Add(new Doctor
+                                var findSpetialization = context.Specializations.SingleOrDefault(x => x.Name == h.Spetialization );
                                 {
-                                    //Name = h.Name,
-                                    //Surname = h.Surname,
-                                    // = findCity.Id,
-                                    //Street = h.Street
-                                });
-                                context.SaveChanges();
+                                    if (findSpetialization != null)
+                                    {
+                                        var findDoctor = context.Doctors.SingleOrDefault(x => x.Name == h.Name && x.Surname == h.Surname && x.ClinicId == findClinic.Id);
+                                        {
+                                            if (findDoctor == null)
+                                            {
+                                                context.Doctors.Add(new Doctor
+                                                {
+
+                                                    Name = h.Name,
+                                                    Surname = h.Surname,
+                                                    DateBirthday = h.DateBirthday,
+                                                    ImageDoctor = h.ImageDoctor,
+                                                    ClinicId = findClinic.Id,
+                                                    SpecializationId = findSpetialization.Id
+                                                });
+                                                context.SaveChanges();
+                                            }
+                                        }
+                                    }
+                                }
                             }
 
                         }

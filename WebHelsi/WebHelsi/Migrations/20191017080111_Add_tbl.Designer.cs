@@ -10,8 +10,8 @@ using WebHelsi.Entities;
 namespace WebHelsi.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20191008083026_Add Doctor and Cleint info")]
-    partial class AddDoctorandCleintinfo
+    [Migration("20191017080111_Add_tbl")]
+    partial class Add_tbl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,11 +116,11 @@ namespace WebHelsi.Migrations
 
                     b.Property<int>("DoctorId");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(250);
-
-                    b.Property<string>("Spetialization");
 
                     b.Property<string>("Surname");
 
@@ -255,8 +255,6 @@ namespace WebHelsi.Migrations
                         .HasMaxLength(250);
 
                     b.Property<int>("SpecializationId");
-
-                    b.Property<string>("Spetialization");
 
                     b.Property<string>("Surname");
 
