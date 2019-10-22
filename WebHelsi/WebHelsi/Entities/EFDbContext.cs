@@ -18,6 +18,8 @@ namespace WebHelsi.Entities
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+
         public EFDbContext(DbContextOptions<EFDbContext> options)
             : base(options)
         {

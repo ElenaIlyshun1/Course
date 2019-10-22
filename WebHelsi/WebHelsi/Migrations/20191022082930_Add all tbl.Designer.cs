@@ -10,8 +10,8 @@ using WebHelsi.Entities;
 namespace WebHelsi.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20191017080111_Add_tbl")]
-    partial class Add_tbl
+    [Migration("20191022082930_Add all tbl")]
+    partial class Addalltbl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -114,13 +114,15 @@ namespace WebHelsi.Migrations
 
                     b.Property<DateTime>("DateBirthday");
 
-                    b.Property<int>("DoctorId");
+                    b.Property<int?>("DoctorId");
 
                     b.Property<string>("Email");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(250);
+
+                    b.Property<string>("Password");
 
                     b.Property<string>("Surname");
 
@@ -267,6 +269,29 @@ namespace WebHelsi.Migrations
                     b.ToTable("tblDoctors");
                 });
 
+            modelBuilder.Entity("WebHelsi.Entities.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ClientId");
+
+                    b.Property<int>("DoctorId");
+
+                    b.Property<DateTime>("ScheduleDateIn")
+                        .HasMaxLength(250);
+
+                    b.Property<DateTime>("ScheduleDateOut");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("Schedules");
+                });
+
             modelBuilder.Entity("WebHelsi.Entities.Specialization", b =>
                 {
                     b.Property<int>("Id")
@@ -315,10 +340,9 @@ namespace WebHelsi.Migrations
 
             modelBuilder.Entity("WebHelsi.Entities.Client", b =>
                 {
-                    b.HasOne("WebHelsi.Entities.Doctor", "Doctor")
+                    b.HasOne("WebHelsi.Entities.Doctor")
                         .WithMany("Clients")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DoctorId");
                 });
 
             modelBuilder.Entity("WebHelsi.Entities.Clinic", b =>
@@ -352,6 +376,19 @@ namespace WebHelsi.Migrations
                     b.HasOne("WebHelsi.Entities.Specialization", "Specialization")
                         .WithMany("Doctors")
                         .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WebHelsi.Entities.Schedule", b =>
+                {
+                    b.HasOne("WebHelsi.Entities.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebHelsi.Entities.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

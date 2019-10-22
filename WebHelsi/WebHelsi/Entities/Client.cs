@@ -18,9 +18,8 @@ namespace WebHelsi.Entities
         public DateTime DateBirthday { get; set; }
         public string Email { get; set; }//замінити в БД
 
+        public string Password { get; set; }//замінити в БД
 
-        [ForeignKey("Doctor")]
-        public int DoctorId { get; set; }
-        public virtual Doctor Doctor { get; set; }
+       
     }
 }

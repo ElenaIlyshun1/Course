@@ -223,30 +223,35 @@ namespace WebHelsi.Entities
                 }
                 #endregion
 
-                //#region Clients
+                #region Clients
 
-                //List<ClientViewModel> clients = new List<ClientViewModel> {
-                //   new ClientViewModel{Name=" Оксана",Surname="Матвійчук",DateBirthday=new DateTime(1965,10,12) , Email = "oksana1423@gmail.com"},
-                //    new ClientViewModel{Name=" Антон",Surname="Петровський",DateBirthday=new DateTime(1965,10,12) , Email = "retro4235@gmail.com"},
-                //    new ClientViewModel{Name=" Вова",Surname="Михальчук",DateBirthday=new DateTime(1965,10,12) , Email = "vovakozel@gmail.com"},
+                List<ClientViewModel> clients = new List<ClientViewModel> {
+                   new ClientViewModel{Name=" Оксана",Surname="Матвійчук",DateBirthday=new DateTime(1965,10,12) , Email = "oksana1423@gmail.com",Password="qwerty3456" },
+                    new ClientViewModel{Name=" Антон",Surname="Петровський",DateBirthday=new DateTime(1965,10,12) , Email = "retro4235@gmail.com",Password="anton1413"},
+                    new ClientViewModel{Name=" Вова",Surname="Михальчук",DateBirthday=new DateTime(1998,10,12) , Email = "bigl@gmail.com",Password="123456789"},
+                    new ClientViewModel{Name=" Гена",Surname="Петров",DateBirthday=new DateTime(1987,10,12) , Email = "gena@gmail.com",Password="gean12"},
+                    new ClientViewModel{Name=" Оля",Surname="Павліна",DateBirthday=new DateTime(2000,10,12) , Email = "olya@gmail.com",Password="olyag4oiu"},
 
-                //};
-                //foreach (var h in clients)
-                //{
-                //    var findClient = context.Clients.SingleOrDefault(x => x.Name == h.Name && x.Surname == h.Surname);
-                //    if (findClient == null)
-                //    {
-                //        context.Clients.Add(new Client
-                //        {
-                //            Name = h.Name,
-                //            Surname = h.Surname,
-                //            Email = h.Email,
-                //            DateBirthday = h.DateBirthday
-                //        });
-                //        context.SaveChanges();
-                //    }
-                //}
-                //#endregion
+                };
+                foreach (var h in clients)
+                {
+                    var findClient = context.Clients.SingleOrDefault(x => x.Email == h.Email );
+                    if (findClient == null)
+                    {
+                        
+                        context.Clients.Add(new Client
+                        {
+                            Name = h.Name,
+                            Surname = h.Surname,
+                            Email = h.Email,
+                            DateBirthday = h.DateBirthday,
+                            Password = h.Password
+
+                        });
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
             }
         }
     }

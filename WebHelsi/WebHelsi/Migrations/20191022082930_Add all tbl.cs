@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WebHelsi.Migrations
 {
-    public partial class Add_tbl : Migration
+    public partial class Addalltbl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -242,13 +242,42 @@ namespace WebHelsi.Migrations
                     Surname = table.Column<string>(nullable: true),
                     DateBirthday = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    DoctorId = table.Column<int>(nullable: false)
+                    Password = table.Column<string>(nullable: true),
+                    DoctorId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tblClients", x => x.Id);
                     table.ForeignKey(
                         name: "FK_tblClients_tblDoctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "tblDoctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Schedules",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ScheduleDateIn = table.Column<DateTime>(maxLength: 250, nullable: false),
+                    ScheduleDateOut = table.Column<DateTime>(nullable: false),
+                    ClientId = table.Column<int>(nullable: false),
+                    DoctorId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Schedules_tblClients_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "tblClients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Schedules_tblDoctors_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "tblDoctors",
                         principalColumn: "Id",
@@ -293,6 +322,16 @@ namespace WebHelsi.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Schedules_ClientId",
+                table: "Schedules",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Schedules_DoctorId",
+                table: "Schedules",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_tblClients_DoctorId",
                 table: "tblClients",
                 column: "DoctorId");
@@ -331,13 +370,16 @@ namespace WebHelsi.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "tblClients");
+                name: "Schedules");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "tblClients");
 
             migrationBuilder.DropTable(
                 name: "tblDoctors");

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CourseWorkHelseWinForm.Properties
+namespace HelsiProgramm.Properties
 {
 
 

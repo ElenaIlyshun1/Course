@@ -26,6 +26,6 @@ namespace WebHelsi.Entities
         public int SpecializationId { get; set; }
         public virtual Specialization Specialization { get; set; }
         
-        public virtual ICollection<Client> Clients { get; set; }
+      //  public virtual ICollection<Client> Clients { get; set; }
     }
 }
