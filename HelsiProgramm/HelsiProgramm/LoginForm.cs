@@ -16,7 +16,7 @@ namespace HelsiProgramm
         {
             InitializeComponent();
         }
-
+        #region DESIGN
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,6 +26,7 @@ namespace HelsiProgramm
         {
             RegisterForm registerForm = new RegisterForm();
             registerForm.ShowDialog();
+
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -38,5 +39,6 @@ namespace HelsiProgramm
         {
             txtPswd.isPassword = true;
         }
+        #endregion
     }
 }

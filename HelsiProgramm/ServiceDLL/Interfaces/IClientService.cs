@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceDLL.Models;
 
 namespace HelsiProgramm.Interfaces
 {
     public interface IClientService
     {
-      //  int Create(ClientAddModel client);
+        //List<ProductModel> GetProducts();
+        //Task<List<ProductModel>> GetProductsAsync();
+        int Create(ClientModel client);
     }
 }
