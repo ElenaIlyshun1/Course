@@ -12,7 +12,7 @@ namespace ServiceDLL.Concrete
 {
     public class AccountApiService
     {
-        private string _url = "https://localhost:44340/api/values";
+        private string _url = "https://localhost:44340/api/clients";
         public int Login(LoginViewModel user)
         {
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));

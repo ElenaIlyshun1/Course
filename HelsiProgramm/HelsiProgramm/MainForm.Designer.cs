@@ -39,13 +39,18 @@
             this.btnClinic = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.dvgClinics = new System.Windows.Forms.DataGridView();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgDoctor = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -310,23 +315,23 @@
             this.panel2.Size = new System.Drawing.Size(926, 17);
             this.panel2.TabIndex = 12;
             // 
-            // dgvProducts
+            // dvgClinics
             // 
-            this.dgvProducts.AllowUserToAddRows = false;
-            this.dgvProducts.AllowUserToDeleteRows = false;
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dvgClinics.AllowUserToAddRows = false;
+            this.dvgClinics.AllowUserToDeleteRows = false;
+            this.dvgClinics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgClinics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColId,
             this.ColName,
             this.street});
-            this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProducts.Location = new System.Drawing.Point(209, 0);
-            this.dgvProducts.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
-            this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(926, 660);
-            this.dgvProducts.TabIndex = 13;
+            this.dvgClinics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvgClinics.Location = new System.Drawing.Point(209, 0);
+            this.dvgClinics.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgClinics.Name = "dvgClinics";
+            this.dvgClinics.ReadOnly = true;
+            this.dvgClinics.RowTemplate.Height = 24;
+            this.dvgClinics.Size = new System.Drawing.Size(926, 660);
+            this.dvgClinics.TabIndex = 13;
             // 
             // ColId
             // 
@@ -350,13 +355,54 @@
             this.street.ReadOnly = true;
             this.street.Width = 500;
             // 
+            // dvgDoctor
+            // 
+            this.dvgDoctor.AllowUserToAddRows = false;
+            this.dvgDoctor.AllowUserToDeleteRows = false;
+            this.dvgDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgDoctor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dvgDoctor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvgDoctor.Location = new System.Drawing.Point(209, 0);
+            this.dvgDoctor.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgDoctor.Name = "dvgDoctor";
+            this.dvgDoctor.ReadOnly = true;
+            this.dvgDoctor.RowTemplate.Height = 24;
+            this.dvgDoctor.Size = new System.Drawing.Size(926, 660);
+            this.dvgDoctor.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Назва";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Вулиця";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 500;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
-            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.dvgDoctor);
+            this.Controls.Add(this.dvgClinics);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
@@ -366,7 +412,8 @@
             this.Text = "MainForm";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,9 +430,13 @@
         private Bunifu.Framework.UI.BunifuImageButton btnClose;
         private Bunifu.Framework.UI.BunifuFlatButton btnSchedule;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.DataGridView dvgClinics;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn street;
+        private System.Windows.Forms.DataGridView dvgDoctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

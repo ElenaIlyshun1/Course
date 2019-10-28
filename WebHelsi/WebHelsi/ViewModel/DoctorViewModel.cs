@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebHelsi.ViewModel
 {
-    public class DoctorViewModel
+    public class DoctorVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,19 @@ namespace WebHelsi.ViewModel
         public string City { get; set; }
         public DateTime DateBirthday { get; set; }
         public string ImageDoctor { get; set; }
-
+    }
+    public class DoctorAddVM
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Spetialization { get; set; }
+        public string Clinic { get; set; }
+        public string City { get; set; }
+        public DateTime DateBirthday { get; set; }
+        public string ImageDoctor { get; set; }
+    }
+    public class DoctorDeleteVM
+    {
+        public int Id { get; set; }
     }
 }

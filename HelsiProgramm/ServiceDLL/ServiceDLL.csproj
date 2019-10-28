@@ -44,9 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Concrete\AccountApiService.cs" />
     <Compile Include="Concrete\ClientApiService.cs" />
+    <Compile Include="Interfaces\IClinicService.cs" />
     <Compile Include="Interfaces\IClientService.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

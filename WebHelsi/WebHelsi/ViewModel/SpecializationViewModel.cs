@@ -5,22 +5,20 @@ using System.Threading.Tasks;
 
 namespace WebHelsi.ViewModel
 {
-    public class ClinicVM
+   
+    public class SpecializationVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
     }
-    public class ClinicAddVM
-    {      
+    public class SpecializationAddVM
+    {
         public string Name { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
+
     }
-    public class ClinicDeleteVM
+    public class SpecializationDeleteVM
     {
         public int Id { get; set; }
-       
     }
+
 }

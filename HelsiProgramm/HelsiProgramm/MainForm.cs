@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ServiceDLL.Models.ClientModel;
 using ServiceDLL.Concrete;
+using static ServiceDLL.Concrete.ClientApiService;
 
 namespace HelsiProgramm
 {
@@ -41,15 +42,15 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
+            dvgClinics.BringToFront();
 
-
-            //ClientApiService service = new ClientApiService();
-            //var list = service.GetClinics();
-            //foreach (var p in list)
-            //{
-            //    object[] row = { p.Id, p.Name, p.Street };
-            //    dgvProducts.Rows.Add(row);
-            //}
+            ClientApiService service = new ClientApiService();
+            var list = service.GetClinics();
+            foreach (var p in list)
+            {
+                object[] row = { p.Id, p.Name, p.Street };
+                dvgClinics.Rows.Add(row);
+            }
 
 
 
@@ -71,6 +72,15 @@ namespace HelsiProgramm
         {
             SidePanel.Height = BtnDoctor.Height;
             SidePanel.Top = BtnDoctor.Top;
+            dvgDoctor.BringToFront();
+            ClientApiService service = new ClientApiService();
+            var list = service.GetClinics();
+            foreach (var p in list)
+            {
+                object[] row = { p.Id, p.Name, p.Street };
+                dvgDoctor.Rows.Add(row);
+            }
+            
         }
 
         private void btnContact_Click(object sender, EventArgs e)

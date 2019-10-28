@@ -14,7 +14,7 @@ namespace WebHelsi.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class AccountController : ControllerBase
+    public class UserController : ControllerBase
     {
         //Підключення до бази даних
         private readonly EFDbContext _context;
@@ -24,7 +24,7 @@ namespace WebHelsi.Controllers
         private readonly SignInManager<DbUser> _signInManager;
 
         //Конструктор контролера
-        public AccountController(EFDbContext context,
+        public UserController(EFDbContext context,
           UserManager<DbUser> userManager,
           SignInManager<DbUser> signInManager)
         {
