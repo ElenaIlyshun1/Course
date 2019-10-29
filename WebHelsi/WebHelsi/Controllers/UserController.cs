@@ -23,14 +23,19 @@ namespace WebHelsi.Controllers
         //Авторизація і аутентифікація User
         private readonly SignInManager<DbUser> _signInManager;
 
+        private readonly RoleManager<DbRole> _roleManager;
+    
+
         //Конструктор контролера
         public UserController(EFDbContext context,
           UserManager<DbUser> userManager,
-          SignInManager<DbUser> signInManager)
+          SignInManager<DbUser> signInManager,
+          RoleManager<DbRole> roleManager)
         {
             _userManager = userManager;
             _context = context;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
         //Запит авторизації
         [HttpPost("login")]
@@ -67,7 +72,7 @@ namespace WebHelsi.Controllers
         }
         //токен аутентифікації
 
-        private string CreateTokenJwt(DbUser user)
+        public string CreateTokenJwt(DbUser user)
         {
             //показує роль нового юзера
             var roles = _userManager.GetRolesAsync(user).Result;
@@ -97,5 +102,82 @@ namespace WebHelsi.Controllers
             //повертаємо токен у вигляді строки
             return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
+
+        #region registration
+        [HttpPost("registration")]
+        public async Task<IActionResult> Registration([FromBody] RegistrationVM model)
+        {
+            // перевіряємо модель на валідність
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest();
+            }
+
+            // створюємо роль адмін
+            string roleAdmin = "Admin";
+
+            // шукаємо роль в базі. Якщо немає - додаємо
+            var role = _roleManager.FindByNameAsync(roleAdmin).Result;
+            if (role == null)
+            {
+                role = new DbRole
+                {
+                    Name = roleAdmin
+                };
+
+                var addRoleResult = _roleManager.CreateAsync(role).Result;
+            }
+
+            // шукаємо юзера в базі по імейлу. якщо немає - додаємо
+            var user = _userManager.FindByNameAsync(model.Email).Result;
+            if (user == null)
+            {
+                //Client c = new Client
+                //{
+                    
+                //}
+                user = new DbUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                };
+
+                var result = _userManager.CreateAsync(user, model.Password).Result;
+                // якщо додало - додаємо роль
+                if (result.Succeeded)
+                {
+                    result = _userManager.AddToRoleAsync(user, roleAdmin).Result;
+                    // логінимо юзера
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    // передаємо модель в БД      
+                    Client up = new Client
+                    {
+                          Id = user.Id,
+                           Name = model.Name,
+                            Surname = model.Surname,
+                              DateBirthday = model.DateTime                      
+                    };
+
+                    //user.Client = up;
+
+                    _context.Clients.Add(up);
+                    _context.SaveChanges();
+
+                    return Ok(
+                   new
+                   {
+                       token = CreateTokenJwt(user)
+                   });
+                }
+            }
+
+
+            return BadRequest();
+        }
+        #endregion
     }
+
+
 }

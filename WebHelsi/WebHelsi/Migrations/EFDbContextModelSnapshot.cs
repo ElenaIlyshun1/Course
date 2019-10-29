@@ -91,66 +91,21 @@ namespace WebHelsi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WebHelsi.Entities.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tblCities");
-                });
-
             modelBuilder.Entity("WebHelsi.Entities.Client", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("DateBirthday");
 
-                    b.Property<int?>("DoctorId");
-
-                    b.Property<string>("Email");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(250);
-
-                    b.Property<string>("Password");
 
                     b.Property<string>("Surname");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorId");
-
                     b.ToTable("tblClients");
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Clinic", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CityId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("tblClinic");
                 });
 
             modelBuilder.Entity("WebHelsi.Entities.DbRole", b =>
@@ -239,71 +194,6 @@ namespace WebHelsi.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("WebHelsi.Entities.Doctor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ClinicId");
-
-                    b.Property<DateTime>("DateBirthday");
-
-                    b.Property<string>("ImageDoctor");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.Property<int>("SpecializationId");
-
-                    b.Property<string>("Surname");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClinicId");
-
-                    b.HasIndex("SpecializationId");
-
-                    b.ToTable("tblDoctors");
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Schedule", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ClientId");
-
-                    b.Property<int>("DoctorId");
-
-                    b.Property<DateTime>("ScheduleDateIn")
-                        .HasMaxLength(250);
-
-                    b.Property<DateTime>("ScheduleDateOut");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("DoctorId");
-
-                    b.ToTable("Schedules");
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Specialization", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tblSpecialization");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("WebHelsi.Entities.DbRole")
@@ -338,16 +228,9 @@ namespace WebHelsi.Migrations
 
             modelBuilder.Entity("WebHelsi.Entities.Client", b =>
                 {
-                    b.HasOne("WebHelsi.Entities.Doctor")
-                        .WithMany("Clients")
-                        .HasForeignKey("DoctorId");
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Clinic", b =>
-                {
-                    b.HasOne("WebHelsi.Entities.City", "City")
-                        .WithMany("Clinics")
-                        .HasForeignKey("CityId")
+                    b.HasOne("WebHelsi.Entities.DbUser", "User")
+                        .WithOne("Client")
+                        .HasForeignKey("WebHelsi.Entities.Client", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -361,32 +244,6 @@ namespace WebHelsi.Migrations
                     b.HasOne("WebHelsi.Entities.DbUser", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Doctor", b =>
-                {
-                    b.HasOne("WebHelsi.Entities.Clinic", "Clinic")
-                        .WithMany()
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WebHelsi.Entities.Specialization", "Specialization")
-                        .WithMany("Doctors")
-                        .HasForeignKey("SpecializationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WebHelsi.Entities.Schedule", b =>
-                {
-                    b.HasOne("WebHelsi.Entities.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WebHelsi.Entities.Doctor", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

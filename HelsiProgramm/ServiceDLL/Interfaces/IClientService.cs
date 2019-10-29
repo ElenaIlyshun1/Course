@@ -11,6 +11,6 @@ namespace HelsiProgramm.Interfaces
     {
         //List<ProductModel> GetProducts();
         //Task<List<ProductModel>> GetProductsAsync();
-        int Create(ClientModel client);
+        int Create(ClinicsModel client);
     }
 }

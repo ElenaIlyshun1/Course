@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ServiceDLL.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using static ServiceDLL.Models.ClientModel;
+using static ServiceDLL.Models.ClinicsModel;
 
 namespace ServiceDLL.Concrete
 {
@@ -41,9 +42,9 @@ namespace ServiceDLL.Concrete
         }
 
 
-        public int Register(LoginViewModel user)
+        public int Register(ClientAddVM user)
         {
-            string _url = "https://localhost:44356/api/account/register";
+            string _url = "https://localhost:44340/api/user/registration";
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
             http.Accept = "application/json";
             http.ContentType = "application/json";
@@ -56,12 +57,17 @@ namespace ServiceDLL.Concrete
             Stream newStream = http.GetRequestStream();
             newStream.Write(bytes, 0, bytes.Length);
             newStream.Close();
+            try
+            {
+                var response = http.GetResponse();
+                var stream = response.GetResponseStream();
+                var sr = new StreamReader(stream);
+                var content = sr.ReadToEnd();
+
+            }
+            catch { }
 
 
-            var response = http.GetResponse();
-            var stream = response.GetResponseStream();
-            var sr = new StreamReader(stream);
-            var content = sr.ReadToEnd();
 
 
 

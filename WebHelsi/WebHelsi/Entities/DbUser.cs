@@ -9,5 +9,6 @@ namespace WebHelsi.Entities
     public class DbUser : IdentityUser<int>
     {
         public ICollection<DbUserRole> UserRoles { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

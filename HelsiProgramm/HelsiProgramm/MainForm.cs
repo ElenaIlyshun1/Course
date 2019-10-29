@@ -10,8 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ServiceDLL.Models.ClientModel;
-using ServiceDLL.Concrete;
+using static ServiceDLL.Models.ClinicsModel;
+
 using static ServiceDLL.Concrete.ClientApiService;
 
 namespace HelsiProgramm
@@ -24,7 +24,22 @@ namespace HelsiProgramm
             InitializeComponent();
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
-
+            //================================
+            ClientApiService clientApi = new ClientApiService();
+            var listcl = clientApi.GetClinics();
+            foreach (var p in listcl)
+            {
+                object[] row = { p.Id, p.Name, p.Street };
+                dvgClinics.Rows.Add(row);
+            }
+            //========================================
+            DoctorApiService doctorApi = new DoctorApiService();
+            var listdc = doctorApi.GetDoctor();
+            foreach (var p in listdc)
+            {
+                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+                dvgDoctor.Rows.Add(row);
+            }
         }
         public MainForm(List<ClinicModels> _clinic)
         {
@@ -44,14 +59,7 @@ namespace HelsiProgramm
             SidePanel.Top = btnClinic.Top;
             dvgClinics.BringToFront();
 
-            ClientApiService service = new ClientApiService();
-            var list = service.GetClinics();
-            foreach (var p in list)
-            {
-                object[] row = { p.Id, p.Name, p.Street };
-                dvgClinics.Rows.Add(row);
-            }
-
+          
 
 
             //foreach (var p in clinic)
@@ -73,13 +81,7 @@ namespace HelsiProgramm
             SidePanel.Height = BtnDoctor.Height;
             SidePanel.Top = BtnDoctor.Top;
             dvgDoctor.BringToFront();
-            ClientApiService service = new ClientApiService();
-            var list = service.GetClinics();
-            foreach (var p in list)
-            {
-                object[] row = { p.Id, p.Name, p.Street };
-                dvgDoctor.Rows.Add(row);
-            }
+           
             
         }
 
@@ -90,6 +92,7 @@ namespace HelsiProgramm
             contactProfil.Location = new Point(237, 61);
             SidePanel.Height = btnContact.Height;
             SidePanel.Top = btnContact.Top;
+            contactProfil.BringToFront();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)

@@ -10,14 +10,13 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static ServiceDLL.Models.ClinicsModel;
 
 namespace ServiceDLL.Concrete
 {
-    public class ClientApiService : IClientService
+    public class DoctorApiService
     {
-        private string _url = "https://localhost:44340/api/Clinics";
-        public int Create(ClinicsModel client)
+        private string _url = "https://localhost:44340/api/Doctors";
+        public int Create(DoctorModel client)
         {
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
             http.Accept = "application/json";
@@ -41,10 +40,10 @@ namespace ServiceDLL.Concrete
             return 0;
         }
 
-        public class ClinicApiService : IClinicService
+        public class ClinicApiService
         {
-            private string _url = "https://localhost:44340/api/Clinics";
-            public int Create(ClinicsModel clinic)
+            private string _url = "https://localhost:44340/api/Doctors";
+            public int Create(DoctorModel clinic)
             {
                 var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
                 http.Accept = "application/json";
@@ -69,22 +68,21 @@ namespace ServiceDLL.Concrete
             }
         }
 
-            public List<ClinicModels> GetClinics()
-            {
-                Debug.WriteLine("-----GetProducts() thread----- {0}",
-                    Thread.CurrentThread.ManagedThreadId);
+        public List<DoctorModel> GetDoctor()
+        {
+            Debug.WriteLine("-----GetProducts() thread----- {0}",
+                Thread.CurrentThread.ManagedThreadId);
 
-                var client = new WebClient();
-                client.Encoding = ASCIIEncoding.UTF8;
-                string data = client.DownloadString(_url);
-                var list = JsonConvert.DeserializeObject<List<ClinicModels>>(data);
-                return list;
-            }
-            public Task<List<ClinicModels>> GetProductsAsync()
-            {
-                return Task.Run(() => GetClinics());
-            }
+            var client = new WebClient();
+            client.Encoding = ASCIIEncoding.UTF8;
+            string data = client.DownloadString(_url);
+            var list = JsonConvert.DeserializeObject<List<DoctorModel>>(data);
+            return list;
+        }
+        public Task<List<DoctorModel>> GetProductsAsync()
+        {
+            return Task.Run(() => GetDoctor());
+        }
 
-        
     }
 }

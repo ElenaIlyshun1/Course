@@ -10,16 +10,15 @@ namespace WebHelsi.Entities
     [Table("tblClients")]
     public class Client
     {
-        [Key]
+        [Key, ForeignKey("User")]
         public int Id { get; set; }
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateBirthday { get; set; }
-        public string Email { get; set; }//замінити в БД
 
-        public string Password { get; set; }//замінити в БД
+        public virtual DbUser User { get; set; }
 
-       
+
     }
 }
