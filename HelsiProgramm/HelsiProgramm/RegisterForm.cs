@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ServiceDLL.Models.ClinicsModel;
+using static ServiceDLL.Models.ClientModel;
 
 namespace HelsiProgramm
 {
@@ -88,7 +88,7 @@ namespace HelsiProgramm
                 // відправляємо модель на сервер
                 AccountApiService service = new AccountApiService();
 
-                var client =  service.Register(new ClientAddVM
+                var client = service.Register(new ClientAddVM
                 {
                     Name = txtName.Text,
                     Surname = txtSur.Text,

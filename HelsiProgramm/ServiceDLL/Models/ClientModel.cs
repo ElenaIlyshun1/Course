@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceDLL.Models
 {
-    public class ClientVM
+    public class ClientModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

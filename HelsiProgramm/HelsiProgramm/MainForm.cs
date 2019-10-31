@@ -1,5 +1,6 @@
 ﻿using HelsiProgramm.UseControl;
 using ServiceDLL.Concrete;
+using ServiceDLL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,9 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ServiceDLL.Models.ClinicsModel;
 
-using static ServiceDLL.Concrete.ClientApiService;
 
 namespace HelsiProgramm
 {
@@ -25,21 +24,29 @@ namespace HelsiProgramm
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
             //================================
-            ClientApiService clientApi = new ClientApiService();
-            var listcl = clientApi.GetClinics();
-            foreach (var p in listcl)
-            {
-                object[] row = { p.Id, p.Name, p.Street };
-                dvgClinics.Rows.Add(row);
-            }
+            //ClientApiService clientApi = new ClientApiService();
+            //var listcl = clientApi.GetClients();
+            //foreach (var p in listcl)
+            //{
+            //    object[] row = { p.Id, p.Name, p.DateBirthday };
+            //    dvgClinics.Rows.Add(row);
+            //}
+            //================================
+            //ClinicApiService clientApi = new ClinicApiService();
+            //var listcl = clientApi.GetClinics();
+            //foreach (var p in listcl)
+            //{
+            //    object[] row = { p.Id, p.Name, p.Street };
+            //    dvgClinics.Rows.Add(row);
+            //}
             //========================================
-            DoctorApiService doctorApi = new DoctorApiService();
-            var listdc = doctorApi.GetDoctor();
-            foreach (var p in listdc)
-            {
-                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
-                dvgDoctor.Rows.Add(row);
-            }
+            //DoctorApiService doctorApi = new DoctorApiService();
+            //var listdc = doctorApi.GetDoctor();
+            //foreach (var p in listdc)
+            //{
+            //    object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+            //    dvgDoctor.Rows.Add(row);
+            //}
         }
         public MainForm(List<ClinicModels> _clinic)
         {
@@ -47,6 +54,7 @@ namespace HelsiProgramm
 
             clinic = _clinic;
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
