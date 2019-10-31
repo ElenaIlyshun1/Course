@@ -13,7 +13,7 @@ namespace ServiceDLL.Concrete
 {
     public class AccountApiService
     {
-        private string _url = "https://localhost:44340/api/clients";
+        private string _url = "https://localhost:44340/api/user";
         public int Login(LoginViewModel user)
         {
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
@@ -34,10 +34,6 @@ namespace ServiceDLL.Concrete
             var stream = response.GetResponseStream();
             var sr = new StreamReader(stream);
             var content = sr.ReadToEnd();
-
-
-
-
             return 0;
         }
 
@@ -57,21 +53,11 @@ namespace ServiceDLL.Concrete
             Stream newStream = http.GetRequestStream();
             newStream.Write(bytes, 0, bytes.Length);
             newStream.Close();
-            try
-            {
-                var response = http.GetResponse();
-                var stream = response.GetResponseStream();
-                var sr = new StreamReader(stream);
-                var content = sr.ReadToEnd();
 
-            }
-            catch { }
-
-
-
-
-
-
+            var response = http.GetResponse();
+            var stream = response.GetResponseStream();
+            var sr = new StreamReader(stream);
+            var content = sr.ReadToEnd();
             return 0;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using HelsiProgramm.ViewModels;
+using Newtonsoft.Json;
 using ServiceDLL.Concrete;
 using ServiceDLL.Models;
 using System;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -87,15 +89,68 @@ namespace HelsiProgramm
 
                 // відправляємо модель на сервер
                 AccountApiService service = new AccountApiService();
-
-                var client =  service.Register(new ClientAddVM
+                try
                 {
-                    Name = txtName.Text,
-                    Surname = txtSur.Text,
-                    DateBirthday = DatePicker.Value,
-                    Password = txtPassword.Text,
-                    Email = txtEmail.Text
-                });
+                    var client = service.Register(new ClientAddVM
+                    {
+                        Name = txtName.Text,
+                        Surname = txtSur.Text,
+                        DateBirthday = DatePicker.Value,
+                        Password = txtPassword.Text,
+                        Email = txtEmail.Text
+                    });
+                }
+                catch (WebException wex)
+                {
+                    if (wex.Response != null)
+                    {
+                        using (var errorResponse = (HttpWebResponse)wex.Response)
+                        {
+                            using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                            {
+                                string error = reader.ReadToEnd();
+                                var mes = JsonConvert.DeserializeAnonymousType(error, new
+                                {                                    
+                                    Name = "",                                    
+                                    Surname = "",
+                                    DateBirthday = "",
+                                    Password = "",
+                                    Email = " "
+                                    
+                                });
+                                if (mes.Name != null)
+                                {
+                                    lblNameError.Text = mes.Name;
+                                }
+                                if (mes.Surname != null)
+                                {
+                                    lblSurnameError.Text = mes.Surname;
+                                }
+                                if (mes.DateBirthday != null)
+                                {
+                                    lblBateBirtdayError.Text = mes.DateBirthday;
+                                }
+                                if (mes.Password != null)
+                                {
+                                    lblPasswordError.Text = mes.Password;
+                                }
+                                if (mes.Email != null)
+                                {
+                                    lblEmailError.Text = mes.Email;
+                                }
+                                lblNameError.ForeColor = Color.Red;
+                                lblSurnameError.ForeColor = Color.Red;
+                                lblBateBirtdayError.ForeColor = Color.Red;
+                                lblEmailError.ForeColor = Color.Red;
+                                lblPasswordError.ForeColor = Color.Red;
+                                lblPrivacyError.ForeColor = Color.Red;
+                                //TODO: use JSON.net to parse this string and look at the error message
+                            }
+                        }
+                    }
+                   // MessageBox.Show("Гюстон у нас проблеми");
+                }
+
             }
         }
 

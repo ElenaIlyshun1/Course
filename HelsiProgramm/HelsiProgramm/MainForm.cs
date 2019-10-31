@@ -25,21 +25,21 @@ namespace HelsiProgramm
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
             //================================
-            ClientApiService clientApi = new ClientApiService();
-            var listcl = clientApi.GetClinics();
-            foreach (var p in listcl)
-            {
-                object[] row = { p.Id, p.Name, p.Street };
-                dvgClinics.Rows.Add(row);
-            }
+            //ClientApiService clientApi = new ClientApiService();
+            //var listcl = clientApi.GetClinics();
+            //foreach (var p in listcl)
+            //{
+            //    object[] row = { p.Id, p.Name, p.Street };
+            //    dvgClinics.Rows.Add(row);
+            //}
             //========================================
-            DoctorApiService doctorApi = new DoctorApiService();
-            var listdc = doctorApi.GetDoctor();
-            foreach (var p in listdc)
-            {
-                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
-                dvgDoctor.Rows.Add(row);
-            }
+            //DoctorApiService doctorApi = new DoctorApiService();
+            //var listdc = doctorApi.GetDoctor();
+            //foreach (var p in listdc)
+            //{
+            //    object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+            //    dvgDoctor.Rows.Add(row);
+            //}
         }
         public MainForm(List<ClinicModels> _clinic)
         {

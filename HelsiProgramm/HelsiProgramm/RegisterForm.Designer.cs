@@ -41,6 +41,12 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblNameError = new System.Windows.Forms.Label();
+            this.lblSurnameError = new System.Windows.Forms.Label();
+            this.lblEmailError = new System.Windows.Forms.Label();
+            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.lblBateBirtdayError = new System.Windows.Forms.Label();
+            this.lblPrivacyError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +57,7 @@
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.LightGreen;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(578, 36);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(578, 14);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(86, 25);
             this.bunifuCustomLabel1.TabIndex = 1;
@@ -69,7 +75,7 @@
             this.txtEmail.LineIdleColor = System.Drawing.Color.LightGreen;
             this.txtEmail.LineMouseHoverColor = System.Drawing.Color.Green;
             this.txtEmail.LineThickness = 3;
-            this.txtEmail.Location = new System.Drawing.Point(481, 214);
+            this.txtEmail.Location = new System.Drawing.Point(483, 168);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(280, 44);
@@ -88,7 +94,7 @@
             this.txtSur.LineIdleColor = System.Drawing.Color.LightGreen;
             this.txtSur.LineMouseHoverColor = System.Drawing.Color.Green;
             this.txtSur.LineThickness = 3;
-            this.txtSur.Location = new System.Drawing.Point(481, 151);
+            this.txtSur.Location = new System.Drawing.Point(483, 105);
             this.txtSur.Margin = new System.Windows.Forms.Padding(4);
             this.txtSur.Name = "txtSur";
             this.txtSur.Size = new System.Drawing.Size(280, 44);
@@ -107,7 +113,7 @@
             this.txtName.LineIdleColor = System.Drawing.Color.LightGreen;
             this.txtName.LineMouseHoverColor = System.Drawing.Color.Green;
             this.txtName.LineThickness = 3;
-            this.txtName.Location = new System.Drawing.Point(481, 89);
+            this.txtName.Location = new System.Drawing.Point(483, 43);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(280, 44);
@@ -121,7 +127,7 @@
             this.DatePicker.ForeColor = System.Drawing.Color.White;
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.DatePicker.FormatCustom = null;
-            this.DatePicker.Location = new System.Drawing.Point(481, 327);
+            this.DatePicker.Location = new System.Drawing.Point(483, 286);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(280, 36);
             this.DatePicker.TabIndex = 6;
@@ -134,7 +140,7 @@
             this.bunifuCheckbox1.Checked = false;
             this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
             this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(518, 367);
+            this.bunifuCheckbox1.Location = new System.Drawing.Point(516, 353);
             this.bunifuCheckbox1.Name = "bunifuCheckbox1";
             this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
             this.bunifuCheckbox1.TabIndex = 7;
@@ -144,7 +150,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(544, 369);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(542, 355);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(96, 16);
             this.bunifuCustomLabel2.TabIndex = 8;
@@ -155,7 +161,7 @@
             this.PrivacyPolicyLabel.AutoSize = true;
             this.PrivacyPolicyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrivacyPolicyLabel.ForeColor = System.Drawing.Color.Teal;
-            this.PrivacyPolicyLabel.Location = new System.Drawing.Point(644, 369);
+            this.PrivacyPolicyLabel.Location = new System.Drawing.Point(642, 355);
             this.PrivacyPolicyLabel.Name = "PrivacyPolicyLabel";
             this.PrivacyPolicyLabel.Size = new System.Drawing.Size(93, 16);
             this.PrivacyPolicyLabel.TabIndex = 9;
@@ -181,7 +187,7 @@
             this.btnCreate.IdleFillColor = System.Drawing.Color.White;
             this.btnCreate.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnCreate.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnCreate.Location = new System.Drawing.Point(526, 391);
+            this.btnCreate.Location = new System.Drawing.Point(526, 396);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(190, 35);
@@ -226,13 +232,61 @@
             this.txtPassword.LineIdleColor = System.Drawing.Color.LightGreen;
             this.txtPassword.LineMouseHoverColor = System.Drawing.Color.Green;
             this.txtPassword.LineThickness = 3;
-            this.txtPassword.Location = new System.Drawing.Point(481, 266);
+            this.txtPassword.Location = new System.Drawing.Point(483, 220);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(280, 44);
             this.txtPassword.TabIndex = 15;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPassword.OnValueChanged += new System.EventHandler(this.txtPassword_OnValueChanged);
+            // 
+            // lblNameError
+            // 
+            this.lblNameError.AutoSize = true;
+            this.lblNameError.Location = new System.Drawing.Point(483, 95);
+            this.lblNameError.Name = "lblNameError";
+            this.lblNameError.Size = new System.Drawing.Size(0, 13);
+            this.lblNameError.TabIndex = 16;
+            // 
+            // lblSurnameError
+            // 
+            this.lblSurnameError.AutoSize = true;
+            this.lblSurnameError.Location = new System.Drawing.Point(483, 157);
+            this.lblSurnameError.Name = "lblSurnameError";
+            this.lblSurnameError.Size = new System.Drawing.Size(0, 13);
+            this.lblSurnameError.TabIndex = 17;
+            // 
+            // lblEmailError
+            // 
+            this.lblEmailError.AutoSize = true;
+            this.lblEmailError.Location = new System.Drawing.Point(483, 220);
+            this.lblEmailError.Name = "lblEmailError";
+            this.lblEmailError.Size = new System.Drawing.Size(0, 13);
+            this.lblEmailError.TabIndex = 18;
+            // 
+            // lblPasswordError
+            // 
+            this.lblPasswordError.AutoSize = true;
+            this.lblPasswordError.Location = new System.Drawing.Point(483, 270);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(0, 13);
+            this.lblPasswordError.TabIndex = 19;
+            // 
+            // lblBateBirtdayError
+            // 
+            this.lblBateBirtdayError.AutoSize = true;
+            this.lblBateBirtdayError.Location = new System.Drawing.Point(483, 329);
+            this.lblBateBirtdayError.Name = "lblBateBirtdayError";
+            this.lblBateBirtdayError.Size = new System.Drawing.Size(0, 13);
+            this.lblBateBirtdayError.TabIndex = 20;
+            // 
+            // lblPrivacyError
+            // 
+            this.lblPrivacyError.AutoSize = true;
+            this.lblPrivacyError.Location = new System.Drawing.Point(513, 377);
+            this.lblPrivacyError.Name = "lblPrivacyError";
+            this.lblPrivacyError.Size = new System.Drawing.Size(0, 13);
+            this.lblPrivacyError.TabIndex = 21;
             // 
             // RegisterForm
             // 
@@ -242,6 +296,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblPrivacyError);
+            this.Controls.Add(this.lblBateBirtdayError);
+            this.Controls.Add(this.lblPasswordError);
+            this.Controls.Add(this.lblEmailError);
+            this.Controls.Add(this.lblSurnameError);
+            this.Controls.Add(this.lblNameError);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
@@ -278,5 +338,11 @@
         private Bunifu.Framework.UI.BunifuImageButton btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtPassword;
+        private System.Windows.Forms.Label lblNameError;
+        private System.Windows.Forms.Label lblSurnameError;
+        private System.Windows.Forms.Label lblEmailError;
+        private System.Windows.Forms.Label lblPasswordError;
+        private System.Windows.Forms.Label lblBateBirtdayError;
+        private System.Windows.Forms.Label lblPrivacyError;
     }
 }

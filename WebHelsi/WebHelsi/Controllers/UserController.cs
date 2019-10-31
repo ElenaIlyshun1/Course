@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebHelsi.Entities;
+using WebHelsi.Helpers;
 
 namespace WebHelsi.Controllers
 {
@@ -105,13 +106,18 @@ namespace WebHelsi.Controllers
 
         #region registration
         [HttpPost("registration")]
-        public async Task<IActionResult> Registration([FromBody] RegistrationVM model)
+        public async Task<IActionResult> Registration([FromBody] RegistrationClientVM model)
         {
             // перевіряємо модель на валідність
             if (!ModelState.IsValid)
             {
-
-                return BadRequest();
+                var errrors = CustomValidator.GetErrorsByModel(ModelState);
+                return BadRequest(errrors);
+            }
+            var user = _userManager.FindByEmailAsync(model.Email).Result;
+            if(user!=null)
+            {
+                return BadRequest(new { invalid="Користувач із такою поштою уже є" });
             }
 
             // створюємо роль адмін
@@ -130,7 +136,7 @@ namespace WebHelsi.Controllers
             }
 
             // шукаємо юзера в базі по імейлу. якщо немає - додаємо
-            var user = _userManager.FindByNameAsync(model.Email).Result;
+            user = _userManager.FindByNameAsync(model.Email).Result;
             if (user == null)
             {
                 //Client c = new Client
