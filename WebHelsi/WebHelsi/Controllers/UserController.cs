@@ -25,7 +25,7 @@ namespace WebHelsi.Controllers
         private readonly SignInManager<DbUser> _signInManager;
 
         private readonly RoleManager<DbRole> _roleManager;
-    
+
 
         //Конструктор контролера
         public UserController(EFDbContext context,
@@ -115,9 +115,9 @@ namespace WebHelsi.Controllers
                 return BadRequest(errrors);
             }
             var user = _userManager.FindByEmailAsync(model.Email).Result;
-            if(user!=null)
+            if (user != null)
             {
-                return BadRequest(new { invalid="Користувач із такою поштою уже є" });
+                return BadRequest(new { invalid = "Користувач із такою поштою уже є" });
             }
 
             // створюємо роль адмін
@@ -141,7 +141,7 @@ namespace WebHelsi.Controllers
             {
                 //Client c = new Client
                 //{
-                    
+
                 //}
                 user = new DbUser
                 {
@@ -160,10 +160,10 @@ namespace WebHelsi.Controllers
                     // передаємо модель в БД      
                     Client up = new Client
                     {
-                          Id = user.Id,
-                           Name = model.Name,
-                            Surname = model.Surname,
-                              DateBirthday = model.DateTime                      
+                        Id = user.Id,
+                        Name = model.Name,
+                        Surname = model.Surname,
+                        DateBirthday = model.DateTime
                     };
 
                     //user.Client = up;

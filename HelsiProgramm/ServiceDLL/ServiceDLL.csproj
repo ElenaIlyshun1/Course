@@ -70,6 +70,7 @@
     <Compile Include="Models\ClientModels.cs" />
     <Compile Include="Models\ClinicsModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
