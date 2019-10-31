@@ -82,6 +82,7 @@
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\ClinicModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
