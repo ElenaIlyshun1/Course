@@ -10,20 +10,21 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static ServiceDLL.Models.ClientModel;
 
 namespace ServiceDLL.Concrete
 {
-    public class ClientApiService : IClientService
-    {
-        private string _url = "https://localhost:44340/api/Client";
-        public int CreateClient(ClientModel client)
+    public class ClinicApiService : IClinicService
+        {
+            private string _url = "https://localhost:44340/api/Clinics";
+        public int CreateClinic(ClinicModels clinic)
         {
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
             http.Accept = "application/json";
             http.ContentType = "application/json";
             http.Method = "POST";
 
-            string parsedContent = JsonConvert.SerializeObject(client);
+            string parsedContent = JsonConvert.SerializeObject(clinic);
             UTF8Encoding encoding = new UTF8Encoding();
             Byte[] bytes = encoding.GetBytes(parsedContent);
 
@@ -40,21 +41,21 @@ namespace ServiceDLL.Concrete
             return 0;
         }
 
-        public List<ClientModel> GetClients()
+        public List<ClinicModels> GetClinics()
         {
-            Debug.WriteLine("-----GetClients() thread----- {0}",
+            Debug.WriteLine("-----GetClinics() thread----- {0}",
                  Thread.CurrentThread.ManagedThreadId);
 
-            var client = new WebClient();
-            client.Encoding = ASCIIEncoding.UTF8;
-            string data = client.DownloadString(_url);
-            var list = JsonConvert.DeserializeObject<List<ClientModel>>(data);
+            var clinic = new WebClient();
+            clinic.Encoding = ASCIIEncoding.UTF8;
+            string data = clinic.DownloadString(_url);
+            var list = JsonConvert.DeserializeObject<List<ClinicModels>>(data);
             return list;
         }
 
-        public Task<List<ClientModel>> GetClientsAsync()
+        public Task<List<ClinicModels>> GetClinicsAsync()
         {
-            return Task.Run(() => GetClients());
+            return Task.Run(() => GetClinics());
         }
     }
 }
