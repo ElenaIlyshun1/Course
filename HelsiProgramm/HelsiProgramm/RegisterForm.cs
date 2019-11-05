@@ -59,8 +59,16 @@ namespace HelsiProgramm
         }
         #endregion
         //=======================================
+        static async void WriteSomeTextAsync(string text)
+        {
+            string Filepath = @"Token.txt";
 
-      
+            using (StreamWriter SR = new StreamWriter(Filepath))
+            {
+                await SR.WriteAsync(text);
+            }
+        }
+
         private void UserAdd()
         {
             if (txtName.Text == "" && txtSur.Text == "" && txtEmail.Text == "" && txtPassword.Text == "")
@@ -69,23 +77,6 @@ namespace HelsiProgramm
             }
             else
             {
-
-
-
-
-
-                //if (tbPassword.Password != tbConfirmPassword.Password)
-                //{
-                //    tbWarningPassword.Text = "Пароль не співпадає";
-                //    tbWarningConfirmPassword.Text = "Пароль не співпадає";
-                //    return;
-                //}
-                //if (tbFirstName.Text == tbLastName.Text && tbFirstName.Text != "")
-                //{
-                //    tbWarningFirstName.Text = "Поле FirstName та LastName не можуть співпадати";
-                //    tbWarningLastName.Text = "Поле FirstName та LastName не можуть співпадати";
-                //    return;
-                //}
 
                 // відправляємо модель на сервер
                 AccountApiService service = new AccountApiService();
@@ -99,6 +90,9 @@ namespace HelsiProgramm
                         Password = txtPassword.Text,
                         Email = txtEmail.Text
                     });
+
+
+                    WriteSomeTextAsync(txtEmail.Text + " " + token);
                 }
                 catch (WebException wex)
                 {
@@ -119,7 +113,6 @@ namespace HelsiProgramm
                                     Password = "",
                                     Email = " ",
                                    
-                                    
                                 });
 
                                 var invalidInfo = new { invalid = "" };
