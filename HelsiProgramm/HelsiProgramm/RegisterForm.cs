@@ -59,8 +59,16 @@ namespace HelsiProgramm
         }
         #endregion
         //=======================================
+        static async void WriteSomeTextAsync(string text)
+        {
+            string Filepath = @"Token.txt";
 
-      
+            using (StreamWriter SR = new StreamWriter(Filepath))
+            {
+                await SR.WriteAsync(text);
+            }
+        }
+
         private void UserAdd()
         {
             if (txtName.Text == "" && txtSur.Text == "" && txtEmail.Text == "" && txtPassword.Text == "")
@@ -70,28 +78,11 @@ namespace HelsiProgramm
             else
             {
 
-
-
-
-
-                //if (tbPassword.Password != tbConfirmPassword.Password)
-                //{
-                //    tbWarningPassword.Text = "Пароль не співпадає";
-                //    tbWarningConfirmPassword.Text = "Пароль не співпадає";
-                //    return;
-                //}
-                //if (tbFirstName.Text == tbLastName.Text && tbFirstName.Text != "")
-                //{
-                //    tbWarningFirstName.Text = "Поле FirstName та LastName не можуть співпадати";
-                //    tbWarningLastName.Text = "Поле FirstName та LastName не можуть співпадати";
-                //    return;
-                //}
-
                 // відправляємо модель на сервер
                 AccountApiService service = new AccountApiService();
                 try
                 {
-                    var client = service.Register(new ClientAddVM
+                    var token = service.Register(new ClientAddVM
                     {
                         Name = txtName.Text,
                         Surname = txtSur.Text,
@@ -99,6 +90,9 @@ namespace HelsiProgramm
                         Password = txtPassword.Text,
                         Email = txtEmail.Text
                     });
+
+
+                    WriteSomeTextAsync(txtEmail.Text + " " + token);
                 }
                 catch (WebException wex)
                 {
@@ -109,15 +103,24 @@ namespace HelsiProgramm
                             using (var reader = new StreamReader(errorResponse.GetResponseStream()))
                             {
                                 string error = reader.ReadToEnd();
+                               
                                 var mes = JsonConvert.DeserializeAnonymousType(error, new
-                                {                                    
+                                {        
+                                    
                                     Name = "",                                    
                                     Surname = "",
                                     DateBirthday = "",
                                     Password = "",
-                                    Email = " "
-                                    
+                                    Email = " ",
+                                   
                                 });
+
+                                var invalidInfo = new { invalid = "" };
+                                invalidInfo = JsonConvert.DeserializeAnonymousType(error, invalidInfo);
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                MessageBox.Show(invalidInfo.invalid.ToUpper());
+
+                                Console.BackgroundColor = ConsoleColor.White;
                                 if (mes.Name != null)
                                 {
                                     lblNameError.Text = mes.Name;
@@ -138,6 +141,7 @@ namespace HelsiProgramm
                                 {
                                     lblEmailError.Text = mes.Email;
                                 }
+
                                 lblNameError.ForeColor = Color.Red;
                                 lblSurnameError.ForeColor = Color.Red;
                                 lblBateBirtdayError.ForeColor = Color.Red;

@@ -38,7 +38,7 @@ namespace ServiceDLL.Concrete
         //}
 
 
-        public int Register(ClientAddVM user)
+        public string Register(ClientAddVM user)
         {
             string _url = "https://localhost:44340/api/user/registration";
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
@@ -58,7 +58,9 @@ namespace ServiceDLL.Concrete
             var stream = response.GetResponseStream();
             var sr = new StreamReader(stream);
             var content = sr.ReadToEnd();
-            return 0;
+            var tokenInfo = new { token = "" };
+            tokenInfo = JsonConvert.DeserializeAnonymousType(content, tokenInfo);
+            return tokenInfo.token;
         }
     }
 }
