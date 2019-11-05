@@ -91,7 +91,7 @@ namespace HelsiProgramm
                 AccountApiService service = new AccountApiService();
                 try
                 {
-                    var client = service.Register(new ClientAddVM
+                    var token = service.Register(new ClientAddVM
                     {
                         Name = txtName.Text,
                         Surname = txtSur.Text,
@@ -109,15 +109,25 @@ namespace HelsiProgramm
                             using (var reader = new StreamReader(errorResponse.GetResponseStream()))
                             {
                                 string error = reader.ReadToEnd();
+                               
                                 var mes = JsonConvert.DeserializeAnonymousType(error, new
-                                {                                    
+                                {        
+                                    
                                     Name = "",                                    
                                     Surname = "",
                                     DateBirthday = "",
                                     Password = "",
-                                    Email = " "
+                                    Email = " ",
+                                   
                                     
                                 });
+
+                                var invalidInfo = new { invalid = "" };
+                                invalidInfo = JsonConvert.DeserializeAnonymousType(error, invalidInfo);
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                MessageBox.Show(invalidInfo.invalid.ToUpper());
+
+                                Console.BackgroundColor = ConsoleColor.White;
                                 if (mes.Name != null)
                                 {
                                     lblNameError.Text = mes.Name;
@@ -138,6 +148,7 @@ namespace HelsiProgramm
                                 {
                                     lblEmailError.Text = mes.Email;
                                 }
+
                                 lblNameError.ForeColor = Color.Red;
                                 lblSurnameError.ForeColor = Color.Red;
                                 lblBateBirtdayError.ForeColor = Color.Red;

@@ -11,6 +11,7 @@ using WebHelsi.ViewModel;
 
 namespace WebHelsi.Controllers
 {
+    //[Authori]
     //[Route("api/[controller]")]
     //[ApiController]
     //public class CitiesController : ControllerBase
