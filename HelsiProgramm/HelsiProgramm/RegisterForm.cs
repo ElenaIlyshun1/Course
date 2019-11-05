@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ServiceDLL.Models.ClientModel;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace HelsiProgramm
 {
@@ -91,7 +92,18 @@ namespace HelsiProgramm
                         Email = txtEmail.Text
                     });
 
+                    var tokenStr = token;
+                    var handler = new JwtSecurityTokenHandler();
+                    var tokenJwtSec = handler.ReadToken(tokenStr) as JwtSecurityToken;
 
+                    Dictionary<string, string> user = new Dictionary<string, string>();
+
+                    foreach (var item in tokenJwtSec.Claims)
+                    {
+                        //if (item.Type != "Id" && item.Type != "exp")
+                        MessageBox.Show(item.Type, item.Value);
+                            //user.Add(item.Type, item.Value);
+                    }
                     WriteSomeTextAsync(txtEmail.Text + " " + token);
                 }
                 catch (WebException wex)
