@@ -14,7 +14,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ServiceDLL.Models.ClinicsModel;
+using static ServiceDLL.Models.ClientModel;
 
 namespace HelsiProgramm
 {

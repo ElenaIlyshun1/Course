@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace ServiceDLL.Models
 {
-    public class ClinicsModel
-    {
-  
-        
-
         public class ClinicModels
         {
             public int Id { get; set; }
@@ -21,10 +16,4 @@ namespace ServiceDLL.Models
 
         }  
 
-        public class LoginViewModel
-        {
-            public string Email { get; set; }
-            public string Password { get; set; }
-        }
-    }
 }

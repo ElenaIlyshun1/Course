@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceDLL.Models;
 
-namespace HelsiProgramm.Interfaces
+namespace ServiceDLL.Interfaces
 {
     public interface IClinicService
     {
-        //List<ProductModel> GetProducts();
-        //Task<List<ProductModel>> GetProductsAsync();
-        int Create(ClinicsModel clinic);
+        List<ClinicModels> GetClinics();
+        Task<List<ClinicModels>> GetClinicsAsync();
+        int CreateClinic(ClinicModels clinic);
     }
 }
