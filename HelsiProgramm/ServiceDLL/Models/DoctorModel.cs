@@ -18,4 +18,21 @@ namespace ServiceDLL.Models
         public string ImageDoctor { get; set; }
 
     }
+
+    public class DoctorAddModel
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Spetialization { get; set; }
+        public string Clinic { get; set; }
+        public string City { get; set; }
+        public DateTime DateBirthday { get; set; }
+        public string ImageDoctor { get; set; }
+
+    }
+
+    public class DoctorDeleteModel
+    {
+        public int Id { get; set; }
+    }
 }

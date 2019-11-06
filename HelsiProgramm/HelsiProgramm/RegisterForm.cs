@@ -131,8 +131,8 @@ namespace HelsiProgramm
                                 invalidInfo = JsonConvert.DeserializeAnonymousType(error, invalidInfo);
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 MessageBox.Show(invalidInfo.invalid.ToUpper());
-
                                 Console.BackgroundColor = ConsoleColor.White;
+
                                 if (mes.Name != null)
                                 {
                                     lblNameError.Text = mes.Name;

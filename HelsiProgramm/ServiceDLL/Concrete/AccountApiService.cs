@@ -13,7 +13,7 @@ namespace ServiceDLL.Concrete
 {
     public class AccountApiService
     {
-        private string _url = "https://localhost:44340/api/user";
+        //private string _url = "https://localhost:44340/api/user";
         //public int Login(LoginViewModel user)
         //{
         //    var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
@@ -61,6 +61,6 @@ namespace ServiceDLL.Concrete
             var tokenInfo = new { token = "" };
             tokenInfo = JsonConvert.DeserializeAnonymousType(content, tokenInfo);
             return tokenInfo.token;
-        }
+        }        
     }
 }

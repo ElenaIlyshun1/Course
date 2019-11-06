@@ -15,7 +15,7 @@ namespace WebHelsi.Entities
 
         [Required, StringLength(maximumLength: 250)]
         public string Name { get; set; }
-        public virtual ICollection<Clinic> Clinics { get; set; }
+        //public virtual ICollection<Clinic> Clinics { get; set; }
 
 
     }

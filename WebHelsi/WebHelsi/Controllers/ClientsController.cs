@@ -37,7 +37,7 @@ namespace WebHelsi.Controllers
                     Name = p.Name,
                     Surname = p.Surname,
                     DateBirthday = p.DateBirthday,
-                    //Email = p.Email,
+                    Email = p.User.Email
                     //Password = p.Password
                 }).ToList();
             return Ok(model);

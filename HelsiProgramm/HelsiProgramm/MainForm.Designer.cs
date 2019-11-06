@@ -48,10 +48,16 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datebirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgwClients = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -403,12 +409,60 @@
             this.datebirth.Name = "datebirth";
             this.datebirth.ReadOnly = true;
             // 
+            // dgwClients
+            // 
+            this.dgwClients.AllowUserToAddRows = false;
+            this.dgwClients.AllowUserToDeleteRows = false;
+            this.dgwClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.dgwClients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgwClients.Location = new System.Drawing.Point(209, 0);
+            this.dgwClients.Margin = new System.Windows.Forms.Padding(4);
+            this.dgwClients.Name = "dgwClients";
+            this.dgwClients.ReadOnly = true;
+            this.dgwClients.RowTemplate.Height = 24;
+            this.dgwClients.Size = new System.Drawing.Size(926, 660);
+            this.dgwClients.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ім\'я";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Прізвище";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 500;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Дата народження";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
+            this.Controls.Add(this.dgwClients);
             this.Controls.Add(this.dvgDoctor);
             this.Controls.Add(this.dvgClinics);
             this.Controls.Add(this.panel2);
@@ -422,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,5 +502,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn datebirth;
+        private System.Windows.Forms.DataGridView dgwClients;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
