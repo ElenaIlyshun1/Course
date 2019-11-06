@@ -17,8 +17,6 @@ namespace HelsiProgramm
 {
     public partial class MainForm : Form
     {
-        List<ClinicModels> clinic;
-
         ClientApiService clientApi = new ClientApiService();
         public MainForm()
         {
@@ -30,7 +28,7 @@ namespace HelsiProgramm
             var listcl = clientApi.GetClients();
             foreach (var p in listcl)
             {
-                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday };
+                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
                 dgwClients.Rows.Add(row);
             }
 
