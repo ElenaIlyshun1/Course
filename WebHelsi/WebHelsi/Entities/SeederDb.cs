@@ -68,24 +68,24 @@ namespace WebHelsi.Entities
                 var managerUser = scope.ServiceProvider.GetRequiredService<UserManager<DbUser>>();
                 var managerRole = scope.ServiceProvider.GetRequiredService<RoleManager<DbRole>>();
 
-                //#region City
-                //string[] cities = {
-                //    "Рівне", "Київ","Харків","Одеса", "Дніпро","Запоріжжя","Львів","Кривий Ріг","Миколаїв","Маріуполь",
-                //    "Вінниця","Херсон","Полтава","Чернігів","Черкаси","Хмельницький"
-                //};
-                //foreach (var c in cities)
-                //{
-                //    var s = context.Cities.SingleOrDefault(x => x.Name == c);
-                //    if (s == null)
-                //    {
-                //        context.Cities.Add(new City
-                //        {
-                //            Name = c
-                //        });
-                //        context.SaveChanges();
-                //    }
-                //}
-                //#endregion
+                #region City
+                string[] cities = {
+                    "Рівне", "Київ","Харків","Одеса", "Дніпро","Запоріжжя","Львів","Кривий Ріг","Миколаїв","Маріуполь",
+                    "Вінниця","Херсон","Полтава","Чернігів","Черкаси","Хмельницький"
+                };
+                foreach (var c in cities)
+                {
+                    var s = context.Cities.SingleOrDefault(x => x.Name == c);
+                    if (s == null)
+                    {
+                        context.Cities.Add(new City
+                        {
+                            Name = c
+                        });
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
                 //#region Specialization
                 //string[] specializations = {
                 //    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
@@ -238,7 +238,7 @@ namespace WebHelsi.Entities
                 //    var findClient = context.Clients.SingleOrDefault(x => x.Email == h.Email );
                 //    if (findClient == null)
                 //    {
-                        
+
                 //        context.Clients.Add(new Client
                 //        {
                 //            Name = h.Name,
