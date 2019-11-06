@@ -15,7 +15,7 @@ namespace ServiceDLL.Concrete
 {
     public class ClientApiService : IClientService
     {
-        private string _url = "https://localhost:44340/api/Client";
+        private string _url = "https://localhost:44340/api/clients";
         public int CreateClient(ClientModel client)
         {
             var http = (HttpWebRequest)WebRequest.Create(new Uri(_url));
@@ -42,8 +42,8 @@ namespace ServiceDLL.Concrete
 
         public List<ClientModel> GetClients()
         {
-            Debug.WriteLine("-----GetClients() thread----- {0}",
-                 Thread.CurrentThread.ManagedThreadId);
+            //Debug.WriteLine("-----GetClients() thread----- {0}",
+            //     Thread.CurrentThread.ManagedThreadId);
 
             var client = new WebClient();
             client.Encoding = ASCIIEncoding.UTF8;
