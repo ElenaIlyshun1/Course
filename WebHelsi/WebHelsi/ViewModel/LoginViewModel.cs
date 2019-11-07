@@ -8,9 +8,10 @@ namespace WebHelsi.ViewModels
 {
     public class LoginViewModel
     {
-        [EmailAddress(ErrorMessage = "Має бути пошта!")]
+        [EmailAddress(ErrorMessage = "Невірно введені дані!")]
         [Required(ErrorMessage = "Поле не може бути пустим!")]
         public string Email { get; set; }
+       
         [Required(ErrorMessage = "Поле не може бути пустим!")]
         public string Password { get; set; }
     }
@@ -20,7 +21,7 @@ namespace WebHelsi.ViewModels
         [Required(ErrorMessage = "Поле Ім'я не може бути порожнім")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Поле Фамілія не може бути порожнім")]
+        [Required(ErrorMessage = "Поле Прізвище не може бути порожнім")]
         public string Surname { get; set; }
 
         [Required(ErrorMessage = "Поле Дата народження не може бути порожнім")]

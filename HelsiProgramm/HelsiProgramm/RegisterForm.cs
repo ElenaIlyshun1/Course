@@ -72,6 +72,11 @@ namespace HelsiProgramm
 
         private void UserAdd()
         {
+            lblNameError.Text = "";
+            lblSurnameError.Text = "";
+            lblBateBirtdayError.Text = "";
+            lblEmailError.Text = "";
+            lblPasswordError.Text = "";
             if (txtName.Text == "" && txtSur.Text == "" && txtEmail.Text == "" && txtPassword.Text == "")
             {
                 MessageBox.Show("Please, fill all lines.");

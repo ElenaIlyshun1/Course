@@ -42,11 +42,11 @@ namespace WebHelsi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]LoginViewModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    var errrors = CustomValidator.GetErrorsByModel(ModelState);
-            //    return BadRequest(errrors);
-            //}
+            if (!ModelState.IsValid)
+            {
+                var errrors = CustomValidator.GetErrorsByModel(ModelState);
+                return BadRequest(errrors);
+            }
 
             //Запит і перевірка на правильність введення даних
             var result = await _signInManager
