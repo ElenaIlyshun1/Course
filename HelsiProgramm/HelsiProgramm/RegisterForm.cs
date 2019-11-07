@@ -104,7 +104,7 @@ namespace HelsiProgramm
                         MessageBox.Show(item.Type, item.Value);
                             //user.Add(item.Type, item.Value);
                     }
-                    WriteSomeTextAsync(txtEmail.Text + " " + token);
+                    WriteSomeTextAsync(token);
                 }
                 catch (WebException wex)
                 {

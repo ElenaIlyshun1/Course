@@ -28,7 +28,7 @@ namespace HelsiProgramm
             var listcl = clientApi.GetClients();
             foreach (var p in listcl)
             {
-                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday };
                 dgwClients.Rows.Add(row);
             }
 
