@@ -40,6 +40,8 @@
             this.btnCreate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnSignIn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblErrorEmail = new System.Windows.Forms.Label();
+            this.lblErrorPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -191,7 +193,7 @@
             this.btnCreate.IdleFillColor = System.Drawing.Color.White;
             this.btnCreate.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnCreate.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnCreate.Location = new System.Drawing.Point(531, 350);
+            this.btnCreate.Location = new System.Drawing.Point(535, 378);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(190, 35);
@@ -217,7 +219,7 @@
             this.btnSignIn.IdleFillColor = System.Drawing.Color.SeaGreen;
             this.btnSignIn.IdleForecolor = System.Drawing.Color.White;
             this.btnSignIn.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSignIn.Location = new System.Drawing.Point(514, 291);
+            this.btnSignIn.Location = new System.Drawing.Point(516, 319);
             this.btnSignIn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(221, 47);
@@ -236,6 +238,20 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // lblErrorEmail
+            // 
+            this.lblErrorEmail.Location = new System.Drawing.Point(457, 199);
+            this.lblErrorEmail.Name = "lblErrorEmail";
+            this.lblErrorEmail.Size = new System.Drawing.Size(320, 13);
+            this.lblErrorEmail.TabIndex = 0;
+            // 
+            // lblErrorPassword
+            // 
+            this.lblErrorPassword.Location = new System.Drawing.Point(457, 295);
+            this.lblErrorPassword.Name = "lblErrorPassword";
+            this.lblErrorPassword.Size = new System.Drawing.Size(320, 13);
+            this.lblErrorPassword.TabIndex = 16;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +260,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblErrorPassword);
+            this.Controls.Add(this.lblErrorEmail);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnCreate);
@@ -280,6 +298,8 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnCreate;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSignIn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblErrorEmail;
+        private System.Windows.Forms.Label lblErrorPassword;
     }
 }
 
