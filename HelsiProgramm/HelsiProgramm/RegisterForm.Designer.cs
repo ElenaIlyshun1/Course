@@ -100,6 +100,7 @@
             this.txtSur.Size = new System.Drawing.Size(280, 44);
             this.txtSur.TabIndex = 4;
             this.txtSur.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtSur.OnValueChanged += new System.EventHandler(this.txtSur_OnValueChanged);
             // 
             // txtName
             // 
@@ -119,6 +120,7 @@
             this.txtName.Size = new System.Drawing.Size(280, 44);
             this.txtName.TabIndex = 5;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtName.OnValueChanged += new System.EventHandler(this.txtName_OnValueChanged);
             // 
             // DatePicker
             // 

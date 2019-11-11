@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace WebHelsi.ViewModels
 {
-    public class LoginViewModel
+    public class UserLoginVM
     {
         [EmailAddress(ErrorMessage = "Невірно введені дані!")]
         [Required(ErrorMessage = "Поле не може бути пустим!")]
         public string Email { get; set; }
-       
+
+      
         [Required(ErrorMessage = "Поле не може бути пустим!")]
         public string Password { get; set; }
     }

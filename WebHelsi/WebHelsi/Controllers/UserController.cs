@@ -40,7 +40,7 @@ namespace WebHelsi.Controllers
         }
         //Запит авторизації
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody]UserLoginVM model)
         {
             if (!ModelState.IsValid)
             {

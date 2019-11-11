@@ -37,14 +37,15 @@ namespace HelsiProgramm
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            lblErrorEmail.Text = "";
-            lblErrorPassword.Text = "";
-            if (txtEmail.Text == " " && txtPswd.Text == " ")
+            
+            if (txtEmail.Text == "" && txtPswd.Text == "")
             {
                 MessageBox.Show("Please, fill all lines.");
             }
             else
             {
+                lblErrorEmail.Text = "";
+                lblErrorPassword.Text = "";
                 // відправляємо модель на сервер
                 AccountApiService service = new AccountApiService();
                 try
@@ -93,9 +94,14 @@ namespace HelsiProgramm
                                     lblErrorEmail.Text = mes.Email;
                                 }
                                 if (mes.Password != null)
-                                {
+                                {                         
                                     lblErrorPassword.Text = mes.Password;
                                 }
+                                if (mes.Password == null)
+                                {
+                                    lblErrorPassword.Text = "Невірно введені дані!";                                 
+                                }
+
                                 lblErrorEmail.ForeColor = Color.Red;
                                 lblErrorPassword.ForeColor = Color.Red;
                             }

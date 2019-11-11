@@ -175,6 +175,35 @@ namespace HelsiProgramm
             }
         }
 
+        private void txtName_OnValueChanged(object sender, EventArgs e)
+        {
+            bool result = txtName.Text.All(Char.IsLetter);
+            if (result==true)
+            {
+                txtName.LineFocusedColor = Color.Green;
+                txtName.LineIdleColor = Color.LightGreen;
+            }
+            else
+            {
+                txtName.LineFocusedColor = Color.Red;
+                txtName.LineIdleColor = Color.Red;
+            }
+        }
+
+        private void txtSur_OnValueChanged(object sender, EventArgs e)
+        {
+            bool result = txtSur.Text.All(Char.IsLetter);
+            if (result == true)
+            {
+                txtSur.LineFocusedColor = Color.Green;
+                txtSur.LineIdleColor = Color.LightGreen;
+            }
+            else
+            {
+                txtSur.LineFocusedColor = Color.Red;
+                txtSur.LineIdleColor = Color.Red;
+            }
+        }
     }
 }
 
