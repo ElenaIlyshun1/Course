@@ -86,68 +86,68 @@ namespace WebHelsi.Entities
                     }
                 }
                 #endregion
-                //#region Specialization
-                //string[] specializations = {
-                //    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
-                //    "Гастроентеролог","Окуліст","Невропатолог","Травматолог","Пульмонолог","Онколог"
-                //};
-                //foreach (var h in specializations)
-                //{
-                //    var a = context.Specializations.SingleOrDefault(x => x.Name == h);
-                //    if (a == null)
-                //    {
-                //        context.Specializations.Add(new Specialization
-                //        {
-                //            Name = h
-                //        });
-                //        context.SaveChanges();
-                //    }
-                //}
-                //#endregion
+                #region Specialization
+                string[] specializations = {
+                    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
+                    "Гастроентеролог","Окуліст","Невропатолог","Травматолог","Пульмонолог","Онколог"
+                };
+                foreach (var h in specializations)
+                {
+                    var a = context.Specializations.SingleOrDefault(x => x.Name == h);
+                    if (a == null)
+                    {
+                        context.Specializations.Add(new Specialization
+                        {
+                            Name = h
+                        });
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
 
-                //#region Cliniks
+                #region Cliniks
 
-                //List<ClinicVM> clinics = new List<ClinicVM> {
-                //    new ClinicVM { Name="Міська Поліклініка №2", City = "Рівне", Street="вул.Грушевського"},
-                //     new ClinicVM { Name="Міська Поліклініка №3", City = "Рівне", Street="вул.Макарова"},
-                //      new ClinicVM { Name="Обласна Лікарня", City = "Рівне", Street="вул.Київська"},
-                //       new ClinicVM { Name="Міська Лікарня", City = "Рівне", Street="вул.Карнаухова"},
-                //       //---------------------------------------------------------------------------------------
-                //       new ClinicVM { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
-                //     new ClinicVM { Name="ДКЛ №4 Солом'янського району", City = "Київ", Street="вул. Стражеско Академіка 6А"},
-                //      new ClinicVM { Name="ДКЛ №7 Печерського району", City = "Київ", Street="вул. Підвисоцького Професора 4Б"},
-                //       new ClinicVM { Name="ДКЛ №9 Подільського району", City = "Київ", Street="вул. Копилівська 1/7"},
-                //             //---------------------------------------------------------------------------------------
-                //       new ClinicVM { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса", Street="вул. Левітана 62"},
-                //     new ClinicVM { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса", Street="вул. Заболотного Академіка 32"},
-                //        new ClinicVM { Name="Одеська міська лікарня №8", City = "Одеса", Street="вул. Фонтанська дорога 110"},
-                //       new ClinicVM { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Одеса", Street="вул. Ільфа та Петрова 8А"},
+                List<ClinicVM> clinics = new List<ClinicVM> {
+                    new ClinicVM { Name="Міська Поліклініка №2", City = "Рівне", Street="вул.Грушевського"},
+                     new ClinicVM { Name="Міська Поліклініка №3", City = "Рівне", Street="вул.Макарова"},
+                      new ClinicVM { Name="Обласна Лікарня", City = "Рівне", Street="вул.Київська"},
+                       new ClinicVM { Name="Міська Лікарня", City = "Рівне", Street="вул.Карнаухова"},
+                       //---------------------------------------------------------------------------------------
+                       new ClinicVM { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
+                     new ClinicVM { Name="ДКЛ №4 Солом'янського району", City = "Київ", Street="вул. Стражеско Академіка 6А"},
+                      new ClinicVM { Name="ДКЛ №7 Печерського району", City = "Київ", Street="вул. Підвисоцького Професора 4Б"},
+                       new ClinicVM { Name="ДКЛ №9 Подільського району", City = "Київ", Street="вул. Копилівська 1/7"},
+                             //---------------------------------------------------------------------------------------
+                       new ClinicVM { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса", Street="вул. Левітана 62"},
+                     new ClinicVM { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса", Street="вул. Заболотного Академіка 32"},
+                        new ClinicVM { Name="Одеська міська лікарня №8", City = "Одеса", Street="вул. Фонтанська дорога 110"},
+                       new ClinicVM { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Одеса", Street="вул. Ільфа та Петрова 8А"},
 
-                //};
-                //foreach (var h in clinics)
-                //{
-                //    //шукаємо місто по назві
-                //    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
-                //    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
-                //    if (findCity != null)
-                //    {
-                //        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
-                //        {
-                //            if (findClinic == null)
-                //            {
-                //                context.Clinics.Add(new Clinic
-                //                {
-                //                    Name = h.Name,
-                //                    CityId = findCity.Id,
-                //                    Street = h.Street
-                //                });
-                //                context.SaveChanges();
-                //            }
+                };
+                foreach (var h in clinics)
+                {
+                    //шукаємо місто по назві
+                    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
+                    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
+                    if (findCity != null)
+                    {
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
+                        {
+                            if (findClinic == null)
+                            {
+                                context.Clinics.Add(new Clinic
+                                {
+                                    Name = h.Name,
+                                    CityId = findCity.Id,
+                                    Street = h.Street
+                                });
+                                context.SaveChanges();
+                            }
 
-                //        }
-                //    }
-                //}
-                //#endregion
+                        }
+                    }
+                }
+                #endregion
 
                 //#region Doctors
 

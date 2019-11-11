@@ -15,8 +15,8 @@ namespace WebHelsi.Entities
 
         //public DbSet<Doctor> Doctors { get; set; }
         public DbSet<City> Cities { get; set; }
-       // public DbSet<Clinic> Clinics { get; set; }
-      //  public DbSet<Specialization> Specializations { get; set; }
+        public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Client> Clients { get; set; }
       //  public DbSet<Schedule> Schedules { get; set; }
 
