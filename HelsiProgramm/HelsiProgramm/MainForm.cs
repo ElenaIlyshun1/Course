@@ -96,7 +96,7 @@ namespace HelsiProgramm
                 if (p.Email == EmailSearch)
                 {
 
-                    contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToShortDateString());
+                    contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToString());
                     this.Controls.Add(contactProfil);
                     contactProfil.Location = new Point(209, 0);
                     contactProfil.BringToFront();
