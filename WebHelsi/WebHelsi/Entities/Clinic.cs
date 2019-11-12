@@ -20,6 +20,9 @@ namespace WebHelsi.Entities
         [Required, StringLength(maximumLength: 250)]
         public string Street { get; set; }
 
+        [Required, StringLength(maximumLength: 250)]
+        public string CityName { get; set; }
+
         [ForeignKey("City")]
         public int CityId { get; set; }
         public virtual City City { get; set; }
