@@ -138,8 +138,9 @@ namespace WebHelsi.Entities
                                 context.Clinics.Add(new Clinic
                                 {
                                     Name = h.Name,
-                                    CityId = findCity.Id,
-                                    Street = h.Street
+                                    Street = h.Street,
+                                    //City = h.City,
+                                    CityId = findCity.Id
                                 });
                                 context.SaveChanges();
                             }
