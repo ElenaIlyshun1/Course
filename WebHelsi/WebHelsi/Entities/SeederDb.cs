@@ -86,142 +86,158 @@ namespace WebHelsi.Entities
                     }
                 }
                 #endregion
-                //#region Specialization
-                //string[] specializations = {
-                //    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
-                //    "Гастроентеролог","Окуліст","Невропатолог","Травматолог","Пульмонолог","Онколог"
-                //};
-                //foreach (var h in specializations)
-                //{
-                //    var a = context.Specializations.SingleOrDefault(x => x.Name == h);
-                //    if (a == null)
-                //    {
-                //        context.Specializations.Add(new Specialization
-                //        {
-                //            Name = h
-                //        });
-                //        context.SaveChanges();
-                //    }
-                //}
-                //#endregion
+                #region Specialization
+                string[] specializations = {
+                    "Дерматолог", "Сімейний терапевт","Педіатр","Хірург", "Отоларинголог","Кардіолог","Стоматолог","Ендокринолог",
+                    "Гастроентеролог","Окуліст","Невропатолог","Травматолог","Пульмонолог","Онколог"
+                };
+                foreach (var h in specializations)
+                {
+                    var a = context.Specializations.SingleOrDefault(x => x.Name == h);
+                    if (a == null)
+                    {
+                        context.Specializations.Add(new Specialization
+                        {
+                            Name = h
+                        });
+                        context.SaveChanges();
+                    }
+                }
+                #endregion
 
-                //#region Cliniks
+                #region Cliniks
 
-                //List<ClinicVM> clinics = new List<ClinicVM> {
-                //    new ClinicVM { Name="Міська Поліклініка №2", City = "Рівне", Street="вул.Грушевського"},
-                //     new ClinicVM { Name="Міська Поліклініка №3", City = "Рівне", Street="вул.Макарова"},
-                //      new ClinicVM { Name="Обласна Лікарня", City = "Рівне", Street="вул.Київська"},
-                //       new ClinicVM { Name="Міська Лікарня", City = "Рівне", Street="вул.Карнаухова"},
-                //       //---------------------------------------------------------------------------------------
-                //       new ClinicVM { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
-                //     new ClinicVM { Name="ДКЛ №4 Солом'янського району", City = "Київ", Street="вул. Стражеско Академіка 6А"},
-                //      new ClinicVM { Name="ДКЛ №7 Печерського району", City = "Київ", Street="вул. Підвисоцького Професора 4Б"},
-                //       new ClinicVM { Name="ДКЛ №9 Подільського району", City = "Київ", Street="вул. Копилівська 1/7"},
-                //             //---------------------------------------------------------------------------------------
-                //       new ClinicVM { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса", Street="вул. Левітана 62"},
-                //     new ClinicVM { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса", Street="вул. Заболотного Академіка 32"},
-                //        new ClinicVM { Name="Одеська міська лікарня №8", City = "Одеса", Street="вул. Фонтанська дорога 110"},
-                //       new ClinicVM { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Одеса", Street="вул. Ільфа та Петрова 8А"},
+                List<ClinicVM> clinics = new List<ClinicVM> {
+                    new ClinicVM { Name="Міська Поліклініка №2", City = "Рівне", Street="вул.Грушевського"},
+                     new ClinicVM { Name="Міська Поліклініка №3", City = "Рівне", Street="вул.Макарова"},
+                      new ClinicVM { Name="Обласна Лікарня", City = "Рівне", Street="вул.Київська"},
+                       new ClinicVM { Name="Міська Лікарня", City = "Рівне", Street="вул.Карнаухова"},
+                       //---------------------------------------------------------------------------------------
+                       new ClinicVM { Name="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ", Street="вул.ТЕРЕЩЕНКІВСЬКА 23-25/10"},
+                     new ClinicVM { Name="ДКЛ №4 Солом'янського району", City = "Київ", Street="вул. Стражеско Академіка 6А"},
+                      new ClinicVM { Name="ДКЛ №7 Печерського району", City = "Київ", Street="вул. Підвисоцького Професора 4Б"},
+                       new ClinicVM { Name="ДКЛ №9 Подільського району", City = "Київ", Street="вул. Копилівська 1/7"},
+                             //---------------------------------------------------------------------------------------
+                       new ClinicVM { Name="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса", Street="вул. Левітана 62"},
+                     new ClinicVM { Name="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса", Street="вул. Заболотного Академіка 32"},
+                        new ClinicVM { Name="Одеська міська лікарня №8", City = "Одеса", Street="вул. Фонтанська дорога 110"},
+                       new ClinicVM { Name=" АМБУЛАТОРІЯ СІМЕЙНОГО ЛІКАРЯ", City = "Одеса", Street="вул. Ільфа та Петрова 8А"},
 
-                //};
-                //foreach (var h in clinics)
-                //{
-                //    //шукаємо місто по назві
-                //    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
-                //    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
-                //    if (findCity != null)
-                //    {
-                //        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
-                //        {
-                //            if (findClinic == null)
-                //            {
-                //                context.Clinics.Add(new Clinic
-                //                {
-                //                    Name = h.Name,
-                //                    CityId = findCity.Id,
-                //                    Street = h.Street
-                //                });
-                //                context.SaveChanges();
-                //            }
+                };
+                foreach (var h in clinics)
+                {
+                    //шукаємо місто по назві
+                    //шукаємо клініку по назві, якщо клінікі немає, то додаємо
+                    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
+                    if (findCity != null)
+                    {
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Name && x.CityId == findCity.Id);
+                        {
+                            if (findClinic == null)
+                            {
+                                context.Clinics.Add(new Clinic
+                                {
+                                    Name = h.Name,
+                                    Street = h.Street,
+                                    //City = h.City,
+                                    CityId = findCity.Id
+                                });
+                                context.SaveChanges();
+                            }
 
-                //        }
-                //    }
-                //}
-                //#endregion
+                        }
+                    }
+                }
+                #endregion
 
-                //#region Doctors
+                #region Doctors
 
-                //List<DoctorVM> doctors = new List<DoctorVM> {
-                //   new DoctorVM{Name=" Оксана",Surname="Синюк",DateBirthday=new DateTime(1965,10,12) ,
-                //       Spetialization = "Педіатр",Clinic ="Міська Поліклініка №2", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                List<DoctorVM> doctors = new List<DoctorVM> {
+                   new DoctorVM{Name=" Оксана",Surname="Синюк",DateBirthday=new DateTime(1965,10,12) , Email = "www@gmail.com",
+                       Spetialization = "Педіатр",Clinic ="Міська Поліклініка №2", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Василь",Surname="Васинюк",DateBirthday=new DateTime(1975,10,11) ,
-                //       Spetialization = "Дерматолог",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Василь",Surname="Васинюк",DateBirthday=new DateTime(1975,10,11) , Email = "rrr@gmail.com",
+                       Spetialization = "Дерматолог",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Тамара",Surname="Олексюк",DateBirthday=new DateTime(1987,08,07) ,
-                //       Spetialization = "Отоларинголог",Clinic ="Обласна Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Тамара",Surname="Олексюк",DateBirthday=new DateTime(1987,08,07) , Email = "sss@gmail.com",
+                       Spetialization = "Отоларинголог",Clinic ="Обласна Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Володимир",Surname="Іванов",DateBirthday=new DateTime(1972,02,05) ,
-                //       Spetialization = "Кардіолог",Clinic ="Міська Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Володимир",Surname="Іванов",DateBirthday=new DateTime(1972,02,05) , Email = "dd@gmail.com",
+                       Spetialization = "Кардіолог",Clinic ="Міська Лікарня", City = "Рівне",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Петро",Surname="Симончук",DateBirthday=new DateTime(1978,01,01) ,
-                //       Spetialization = "Невропатолог",Clinic ="ДКЛ №4 Солом'янського району", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Петро",Surname="Симончук",DateBirthday=new DateTime(1978,01,01) , Email = "ff@gmail.com",
+                       Spetialization = "Невропатолог",Clinic ="ДКЛ №4 Солом'янського району", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Степан",Surname="Миколюк",DateBirthday=new DateTime(1968,11,12) ,
-                //       Spetialization = "Хірург",Clinic ="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Степан",Surname="Миколюк",DateBirthday=new DateTime(1968,11,12) , Email = "gg@gmail.com",
+                       Spetialization = "Хірург",Clinic ="ДИТЯЧА КЛІНІЧНА ЛІКАРНЯ №6", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Олена",Surname="Кірчук",DateBirthday=new DateTime(1955,08,02) ,
-                //       Spetialization = "Сімейний терапевт",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Олена",Surname="Кірчук",DateBirthday=new DateTime(1955,08,02) , Email = "hh@gmail.com",
+                       Spetialization = "Сімейний терапевт",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Київ",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Тетяна",Surname="Горпинчук",DateBirthday=new DateTime(1959,11,22) ,
-                //       Spetialization = "Окуліст",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name=" Тетяна",Surname="Горпинчук",DateBirthday=new DateTime(1959,11,22) , Email = "jj@gmail.com",
+                       Spetialization = "Окуліст",Clinic ="КНП Консультативно-діагностичний центр №20 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name="Сергій",Surname="Петрушевський",DateBirthday=new DateTime(1978,09,10) ,
-                //       Spetialization = "Дерматолог",Clinic ="Одеська міська лікарня №8", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                    new DoctorVM{Name="Сергій",Surname="Петрушевський",DateBirthday=new DateTime(1978,09,10) , Email = "kkk@gmail.com",
+                       Spetialization = "Дерматолог",Clinic ="Одеська міська лікарня №8", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
 
-                //    new DoctorVM{Name=" Світлана",Surname="Романюк",DateBirthday=new DateTime(1990,10,12) ,
-                //       Spetialization = "Ендокринолог",Clinic ="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
-                //     //-----------------------------------------------------------------------------------
-                //};
-                //foreach (var h in doctors)
-                //{
+                    new DoctorVM{Name=" Світлана",Surname="Романюк",DateBirthday=new DateTime(1990,10,12) , Email = "bbb@gmail.com",
+                       Spetialization = "Ендокринолог",Clinic ="КНП Консультативно-діагностичний центр №29 ОМР", City = "Одеса",ImageDoctor="https://icon-library.net/images/icon-for-person/icon-for-person-1.jpg" },
+                     //-----------------------------------------------------------------------------------
+                };
+                foreach (var h in doctors)
+                {
 
-                //    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
-                //    if (findCity != null)
-                //    {
-                //        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Clinic && x.CityId == findCity.Id);
-                //        {
-                //            if (findClinic != null)
-                //            {
-                //                var findSpetialization = context.Specializations.SingleOrDefault(x => x.Name == h.Spetialization);
-                //                {
-                //                    if (findSpetialization != null)
-                //                    {
-                //                        var findDoctor = context.Doctors.SingleOrDefault(x => x.Name == h.Name && x.Surname == h.Surname && x.ClinicId == findClinic.Id);
-                //                        {
-                //                            if (findDoctor == null)
-                //                            {
-                //                                context.Doctors.Add(new Doctor
-                //                                {
+                    var findCity = context.Cities.SingleOrDefault(x => x.Name == h.City);
+                    if (findCity != null)
+                    {
+                        var findClinic = context.Clinics.SingleOrDefault(x => x.Name == h.Clinic && x.CityId == findCity.Id);
+                        {
+                            if (findClinic != null)
+                            {
+                                var findSpetialization = context.Specializations.SingleOrDefault(x => x.Name == h.Spetialization);
+                                {
+                                    if (findSpetialization != null)
+                                    {
+                                        var findDoctor = context.Doctors.SingleOrDefault(x => x.Name == h.Name && x.Surname == h.Surname && x.ClinicId == findClinic.Id);
+                                        {
+                                            if (findDoctor == null)
+                                            {
+                                                var findEmail = managerUser.FindByNameAsync(h.Email).Result;
+                                                if (findEmail == null)
+                                                {
+                                                    var user = new DbUser
+                                                    {
+                                                        UserName = h.Email,
+                                                        Email = h.Email
+                                                    };
 
-                //                                    Name = h.Name,
-                //                                    Surname = h.Surname,
-                //                                    DateBirthday = h.DateBirthday,
-                //                                    ImageDoctor = h.ImageDoctor,
-                //                                    ClinicId = findClinic.Id,
-                //                                    SpecializationId = findSpetialization.Id
-                //                                });
-                //                                context.SaveChanges();
-                //                            }
-                //                        }
-                //                    }
-                //                }
-                //            }
 
-                //        }
-                //    }
-                //}
-                //#endregion
+                                                    var result = managerUser.CreateAsync(user, "Qwerty1-").Result;
+                                                    if (result.Succeeded)
+                                                    {
+                                                        context.Doctors.Add(new Doctor
+                                                        {
+                                                            Id = user.Id,
+                                                            Name = h.Name,
+                                                            Surname = h.Surname,
+                                                            DateBirthday = h.DateBirthday,
+                                                            ImageDoctor = h.ImageDoctor,
+                                                            ClinicId = findClinic.Id,
+                                                            SpecializationId = findSpetialization.Id
+                                                        });
+                                                        context.SaveChanges();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                #endregion
 
                 //#region Clients
 

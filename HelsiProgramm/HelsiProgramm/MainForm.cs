@@ -27,29 +27,30 @@ namespace HelsiProgramm
             SidePanel.Top = btnClinic.Top;
 
             //================================
-            var listcl = clientApi.GetClients();
-            foreach (var p in listcl)
+            var listclients = clientApi.GetClients();
+            foreach (var p in listclients)
             {
-                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday };
                 dgwClients.Rows.Add(row);
             }
 
             //================================
-            //ClinicApiService clinicApi = new ClinicApiService();
-            //var listcl = clinicApi.GetClinics();
-            //foreach (var p in listcl)
-            //{
-            //    object[] row = { p.Id, p.Name, p.Street };
-            //    dvgClinics.Rows.Add(row);
-            //}
+            ClinicApiService clinicApi = new ClinicApiService();
+            var listclinic = clinicApi.GetClinics();
+            foreach (var p in listclinic)
+            {
+                object[] row = { p.Id, p.Name, p.Street };
+                dvgClinics.Rows.Add(row);
+            }
+
             //========================================
-            //DoctorApiService doctorApi = new DoctorApiService();
-            //var listdc = doctorApi.GetDoctor();
-            //foreach (var p in listdc)
-            //{
-            //    object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
-            //    dvgDoctor.Rows.Add(row);
-            //}
+            DoctorApiService doctorApi = new DoctorApiService();
+            var listdoctor = doctorApi.GetDoctor();
+            foreach (var p in listdoctor)
+            {
+                object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
+                dvgDoctor.Rows.Add(row);
+            }
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

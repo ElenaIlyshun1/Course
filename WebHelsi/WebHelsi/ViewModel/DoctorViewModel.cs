@@ -15,6 +15,7 @@ namespace WebHelsi.ViewModel
         public string City { get; set; }
         public DateTime DateBirthday { get; set; }
         public string ImageDoctor { get; set; }
+        public string Email { get; set; }
     }
     public class DoctorAddVM
     {
@@ -25,6 +26,7 @@ namespace WebHelsi.ViewModel
         public string City { get; set; }
         public DateTime DateBirthday { get; set; }
         public string ImageDoctor { get; set; }
+        public string Email { get; set; }
     }
     public class DoctorDeleteVM
     {
