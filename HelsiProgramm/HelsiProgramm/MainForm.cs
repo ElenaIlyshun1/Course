@@ -36,11 +36,11 @@ namespace HelsiProgramm
             }
 
             //================================
-            ClinicApiService clinicApi = new ClinicApiService();
+           ClinicApiService clinicApi = new ClinicApiService();
             var listclinic = clinicApi.GetClinics();
             foreach (var p in listclinic)
             {
-                object[] row = { p.Id, p.Name, p.Street };
+                object[] row = { p.Id,p.City, p.Name, p.Street };
                 dvgClinics.Rows.Add(row);
             }
             //=============================
@@ -70,7 +70,7 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
-            dvgCity.BringToFront();
+            dvgClinics.BringToFront();
         }
 
         private void btnReform_Click(object sender, EventArgs e)
@@ -122,6 +122,27 @@ namespace HelsiProgramm
             dvgDoctor.BringToFront();
         }
 
+       
 
+        private void dvgCity_SelectionChanged(object sender, EventArgs e)
+        {
+          /* 
+            
+
+            ClinicApiService clinicApi = new ClinicApiService();
+            var listclinic = clinicApi.GetClinics();
+
+
+
+            foreach (var p in listclinic)
+            {
+                if (dvgCity.SelectedColumns == p.City)
+                {
+
+                }
+                object[] row = { p.Id, p.Name, p.Street };
+                dvgClinics.Rows.Add(row);
+            }*/
+        }
     }
 }

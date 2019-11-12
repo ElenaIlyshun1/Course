@@ -40,9 +40,6 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dvgClinics = new System.Windows.Forms.DataGridView();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgDoctor = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +53,10 @@
             this.dvgCity = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).BeginInit();
@@ -333,38 +334,17 @@
             this.dvgClinics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgClinics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColId,
+            this.city,
             this.ColName,
             this.street});
             this.dvgClinics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvgClinics.Location = new System.Drawing.Point(209, 0);
+            this.dvgClinics.Location = new System.Drawing.Point(0, 0);
             this.dvgClinics.Margin = new System.Windows.Forms.Padding(4);
             this.dvgClinics.Name = "dvgClinics";
             this.dvgClinics.ReadOnly = true;
             this.dvgClinics.RowTemplate.Height = 24;
-            this.dvgClinics.Size = new System.Drawing.Size(926, 660);
+            this.dvgClinics.Size = new System.Drawing.Size(1135, 660);
             this.dvgClinics.TabIndex = 13;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "Id";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Visible = false;
-            // 
-            // ColName
-            // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColName.FillWeight = 60F;
-            this.ColName.HeaderText = "Назва";
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
-            // 
-            // street
-            // 
-            this.street.HeaderText = "Вулиця";
-            this.street.Name = "street";
-            this.street.ReadOnly = true;
-            this.street.Width = 500;
             // 
             // dvgDoctor
             // 
@@ -377,12 +357,12 @@
             this.dataGridViewTextBoxColumn3,
             this.datebirth});
             this.dvgDoctor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvgDoctor.Location = new System.Drawing.Point(209, 0);
+            this.dvgDoctor.Location = new System.Drawing.Point(0, 0);
             this.dvgDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.dvgDoctor.Name = "dvgDoctor";
             this.dvgDoctor.ReadOnly = true;
             this.dvgDoctor.RowTemplate.Height = 24;
-            this.dvgDoctor.Size = new System.Drawing.Size(926, 660);
+            this.dvgDoctor.Size = new System.Drawing.Size(1135, 660);
             this.dvgDoctor.TabIndex = 14;
             // 
             // dataGridViewTextBoxColumn1
@@ -424,12 +404,12 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.dgwClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwClients.Location = new System.Drawing.Point(209, 0);
+            this.dgwClients.Location = new System.Drawing.Point(0, 0);
             this.dgwClients.Margin = new System.Windows.Forms.Padding(4);
             this.dgwClients.Name = "dgwClients";
             this.dgwClients.ReadOnly = true;
             this.dgwClients.RowTemplate.Height = 24;
-            this.dgwClients.Size = new System.Drawing.Size(926, 660);
+            this.dgwClients.Size = new System.Drawing.Size(1135, 660);
             this.dgwClients.TabIndex = 15;
             // 
             // dataGridViewTextBoxColumn4
@@ -476,6 +456,7 @@
             this.dvgCity.RowTemplate.Height = 24;
             this.dvgCity.Size = new System.Drawing.Size(926, 660);
             this.dvgCity.TabIndex = 16;
+            this.dvgCity.SelectionChanged += new System.EventHandler(this.dvgCity_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -492,6 +473,34 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Visible = false;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "Місто";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            // 
+            // ColName
+            // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColName.FillWeight = 60F;
+            this.ColName.HeaderText = "Назва";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // street
+            // 
+            this.street.HeaderText = "Вулиця";
+            this.street.Name = "street";
+            this.street.ReadOnly = true;
+            this.street.Width = 500;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,12 +508,12 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
             this.Controls.Add(this.dvgCity);
-            this.Controls.Add(this.dgwClients);
-            this.Controls.Add(this.dvgDoctor);
-            this.Controls.Add(this.dvgClinics);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dgwClients);
+            this.Controls.Add(this.dvgDoctor);
+            this.Controls.Add(this.dvgClinics);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -532,9 +541,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnSchedule;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dvgClinics;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn street;
         private System.Windows.Forms.DataGridView dvgDoctor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -548,5 +554,9 @@
         private System.Windows.Forms.DataGridView dvgCity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn street;
     }
 }
