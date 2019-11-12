@@ -35,7 +35,8 @@ namespace WebHelsi.Controllers
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Street = p.Street,
+                    City= p.City.Name,
+                    Street = p.Street
 
                 }).ToList();
             return Ok(model);
