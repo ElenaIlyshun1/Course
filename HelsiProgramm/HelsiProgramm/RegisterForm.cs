@@ -105,6 +105,7 @@ namespace HelsiProgramm
 
                    
                     WriteSomeTextAsync(txtEmail.Text + " " + token);
+                    this.Close();
                 }
                 catch (WebException wex)
                 {

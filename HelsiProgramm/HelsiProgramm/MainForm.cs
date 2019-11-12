@@ -43,7 +43,15 @@ namespace HelsiProgramm
                 object[] row = { p.Id, p.Name, p.Street };
                 dvgClinics.Rows.Add(row);
             }
+            //=============================
 
+            CityApiService cityApi = new CityApiService();
+            var listcity = cityApi.GetCities();
+            foreach (var p in listcity)
+            {
+                object[] row = { p.Id, p.Name};
+                dvgCity.Rows.Add(row);
+            }
             //========================================
             DoctorApiService doctorApi = new DoctorApiService();
             var listdoctor = doctorApi.GetDoctor();
@@ -62,7 +70,7 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
-            dvgClinics.BringToFront();
+            dvgCity.BringToFront();
         }
 
         private void btnReform_Click(object sender, EventArgs e)

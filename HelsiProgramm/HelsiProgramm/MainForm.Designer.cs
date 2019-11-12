@@ -53,11 +53,15 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgCity = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -456,12 +460,45 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
+            // dvgCity
+            // 
+            this.dvgCity.AllowUserToAddRows = false;
+            this.dvgCity.AllowUserToDeleteRows = false;
+            this.dvgCity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgCity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dvgCity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvgCity.Location = new System.Drawing.Point(209, 0);
+            this.dvgCity.Margin = new System.Windows.Forms.Padding(4);
+            this.dvgCity.Name = "dvgCity";
+            this.dvgCity.ReadOnly = true;
+            this.dvgCity.RowTemplate.Height = 24;
+            this.dvgCity.Size = new System.Drawing.Size(926, 660);
+            this.dvgCity.TabIndex = 16;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Назва";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
+            this.Controls.Add(this.dvgCity);
             this.Controls.Add(this.dgwClients);
             this.Controls.Add(this.dvgDoctor);
             this.Controls.Add(this.dvgClinics);
@@ -477,6 +514,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,5 +545,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridView dvgCity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }
