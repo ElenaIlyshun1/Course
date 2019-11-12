@@ -139,10 +139,6 @@ namespace WebHelsi.Controllers
             user = _userManager.FindByNameAsync(model.Email).Result;
             if (user == null)
             {
-                //Client c = new Client
-                //{
-
-                //}
                 user = new DbUser
                 {
                     UserName = model.Email,
