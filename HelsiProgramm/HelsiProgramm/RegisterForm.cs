@@ -104,7 +104,7 @@ namespace HelsiProgramm
                     Dictionary<string, string> user = new Dictionary<string, string>();
 
                    
-                    WriteSomeTextAsync(txtEmail.Text + " " + token);
+                    WriteSomeTextAsync(token);
                 }
                 catch (WebException wex)
                 {
