@@ -13,20 +13,18 @@ namespace HelsiProgramm.UseControl
 {
     public partial class ContactProfil : UserControl
     {  
-        public ContactProfil(string name, string surname, string birth,string image)
+        public ContactProfil(string name, string surname, string birth)
         {
             InitializeComponent();
             txtName.Text = name;
             txtSurname.Text = surname;
             txtDateOfBirth.Text = birth;
-            var request = WebRequest.Create(image);
+          
+        }
 
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                Photo.BackgroundImage = Bitmap.FromStream(stream);
-            }
-            Photo.BackgroundImageLayout = ImageLayout.Stretch;
+        private void ContactProfil_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

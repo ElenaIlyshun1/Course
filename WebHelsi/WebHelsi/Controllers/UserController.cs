@@ -163,7 +163,7 @@ namespace WebHelsi.Controllers
                         Id = user.Id,
                         Name = model.Name,
                         Surname = model.Surname,
-                        DateBirthday = model.DateTime
+                        DateBirthday = model.DataBirthday
                     };
 
                     //user.Client = up;

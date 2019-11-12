@@ -71,7 +71,7 @@ namespace HelsiProgramm
                     //// WriteSomeTextAsync(txtEmail.Text + " " + token);
                     ///
                     
-                    MainForm mainForm = new MainForm();
+                    MainForm mainForm = new MainForm(txtEmail.Text);
                     mainForm.ShowDialog();
                     this.Close();
                 }

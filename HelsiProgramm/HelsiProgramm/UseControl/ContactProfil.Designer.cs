@@ -132,6 +132,7 @@
             this.Controls.Add(this.txtName);
             this.Name = "ContactProfil";
             this.Size = new System.Drawing.Size(1012, 544);
+            this.Load += new System.EventHandler(this.ContactProfil_Load);
             this.bunifuGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

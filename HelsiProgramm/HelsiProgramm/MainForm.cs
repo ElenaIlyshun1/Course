@@ -17,9 +17,11 @@ namespace HelsiProgramm
 {
     public partial class MainForm : Form
     {
+        string EmailSearch;
         ClientApiService clientApi = new ClientApiService();
-        public MainForm()
+        public MainForm(string email)
         {
+            EmailSearch = email;
             InitializeComponent();
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
@@ -72,19 +74,29 @@ namespace HelsiProgramm
             SidePanel.Height = BtnDoctor.Height;
             SidePanel.Top = BtnDoctor.Top;
             dvgDoctor.BringToFront();
-           
-            
+
+
         }
 
         private void btnContact_Click(object sender, EventArgs e)
-        {           
-            //ContactProfil contactProfil = new ContactProfil("Jim", "Bim", "1989", "https://medialeaks.ru/wp-content/uploads/2018/07/2_MPM_DRUNK_LEMUR_03-305x449.jpg");
-            //this.Controls.Add(contactProfil);
-            //contactProfil.Location = new Point(237, 61);
+        {
+            var listcl = clientApi.GetClients();
+            foreach (var p in listcl)
+            {
+                if (p.Email == EmailSearch)
+                {
+
+                    ContactProfil contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToShortDateString());
+                    this.Controls.Add(contactProfil);
+                    contactProfil.Location = new Point(237, 61);
+                    contactProfil.BringToFront();
+                    break;
+                }
+            }
             SidePanel.Height = btnContact.Height;
             SidePanel.Top = btnContact.Top;
             //contactProfil.BringToFront();
-            dgwClients.BringToFront();
+           
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -97,6 +109,7 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnSchedule.Height;
             SidePanel.Top = btnSchedule.Top;
+            dvgDoctor.BringToFront();
         }
 
 

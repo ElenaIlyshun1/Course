@@ -103,12 +103,7 @@ namespace HelsiProgramm
 
                     Dictionary<string, string> user = new Dictionary<string, string>();
 
-                    foreach (var item in tokenJwtSec.Claims)
-                    {
-                        //if (item.Type != "Id" && item.Type != "exp")
-                        MessageBox.Show(item.Type, item.Value);
-                            //user.Add(item.Type, item.Value);
-                    }
+                   
                     WriteSomeTextAsync(txtEmail.Text + " " + token);
                 }
                 catch (WebException wex)

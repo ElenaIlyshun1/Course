@@ -26,7 +26,7 @@ namespace WebHelsi.ViewModels
         public string Surname { get; set; }
 
         [Required(ErrorMessage = "Поле Дата народження не може бути порожнім")]
-        public DateTime DateTime { get; set; }
+        public DateTime DataBirthday { get; set; }
 
         [EmailAddress(ErrorMessage = "Має бути пошта!")]
         [Required(ErrorMessage = "Поле Email не може бути порожнім")]
