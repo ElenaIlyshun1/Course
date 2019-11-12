@@ -18,6 +18,7 @@ namespace HelsiProgramm
     public partial class MainForm : Form
     {
         string EmailSearch;
+        ContactProfil contactProfil;
         ClientApiService clientApi = new ClientApiService();
         public MainForm(string email)
         {
@@ -87,16 +88,16 @@ namespace HelsiProgramm
                 if (p.Email == EmailSearch)
                 {
 
-                    ContactProfil contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToShortDateString());
+                    contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToShortDateString());
                     this.Controls.Add(contactProfil);
-                    contactProfil.Location = new Point(237, 61);
+                    contactProfil.Location = new Point(209, 0);
                     contactProfil.BringToFront();
                     break;
                 }
             }
             SidePanel.Height = btnContact.Height;
             SidePanel.Top = btnContact.Top;
-            //contactProfil.BringToFront();
+            contactProfil.BringToFront();
            
         }
 
