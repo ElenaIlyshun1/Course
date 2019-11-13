@@ -181,6 +181,7 @@ namespace HelsiProgramm
 
         private void btnConfirmShedule_Click(object sender, EventArgs e)
         {
+
             int id = dvgDoctor.CurrentRow.Index;
             //  int id = 36;
             //=================================
@@ -213,6 +214,18 @@ namespace HelsiProgramm
             SidePanel.Height = btnSchedule.Height;
             SidePanel.Top = btnSchedule.Top;
             dvgShedules.BringToFront();
+
+        }
+        private void dateShedulePicker_onValueChanged(object sender, EventArgs e)
+        {
+            if (dateShedulePicker.Value < DateTime.Today)
+            {
+                dateShedulePicker.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                dateShedulePicker.BackColor = Color.SeaGreen;
+            }
         }
     }
 }
