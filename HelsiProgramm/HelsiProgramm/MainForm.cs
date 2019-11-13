@@ -36,20 +36,14 @@ namespace HelsiProgramm
             }
 
             //================================
-           ClinicApiService clinicApi = new ClinicApiService();
-            var listclinic = clinicApi.GetClinics();
-            foreach (var p in listclinic)
-            {
-                object[] row = { p.Id,p.City, p.Name, p.Street };
-                dvgClinics.Rows.Add(row);
-            }
+
             //=============================
 
             CityApiService cityApi = new CityApiService();
             var listcity = cityApi.GetCities();
             foreach (var p in listcity)
             {
-                object[] row = { p.Id, p.Name};
+                object[] row = { p.Id, p.Name };
                 dvgCity.Rows.Add(row);
             }
             //========================================
@@ -60,6 +54,7 @@ namespace HelsiProgramm
                 object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
                 dvgDoctor.Rows.Add(row);
             }
+
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -70,7 +65,7 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnClinic.Height;
             SidePanel.Top = btnClinic.Top;
-            dvgClinics.BringToFront();
+            dvgCity.BringToFront();
         }
 
         private void btnReform_Click(object sender, EventArgs e)
@@ -96,9 +91,11 @@ namespace HelsiProgramm
                 if (p.Email == EmailSearch)
                 {
 
-                    contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToString());
+                    contactProfil = new ContactProfil(p.Name, p.Surname, p.DateBirthday.ToShortDateString());
                     this.Controls.Add(contactProfil);
-                    contactProfil.Location = new Point(209, 0);
+                    contactProfil.Location = new Point(209, 28);
+                    contactProfil.Size = new Size(926, 632);
+
                     contactProfil.BringToFront();
                     break;
                 }
@@ -106,7 +103,7 @@ namespace HelsiProgramm
             SidePanel.Height = btnContact.Height;
             SidePanel.Top = btnContact.Top;
             contactProfil.BringToFront();
-           
+
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -119,30 +116,103 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnSchedule.Height;
             SidePanel.Top = btnSchedule.Top;
-            dvgDoctor.BringToFront();
+            dvgShedules.BringToFront();
         }
 
-       
+
 
         private void dvgCity_SelectionChanged(object sender, EventArgs e)
         {
-          /* 
-            
-
+            dvgClinics.Rows.Clear();
+            int id = Convert.ToInt32(dvgCity.Rows[dvgCity.CurrentRow.Index].Cells[0].Value);
+            //=================================
             ClinicApiService clinicApi = new ClinicApiService();
             var listclinic = clinicApi.GetClinics();
-
+            //==================================================
+            CityApiService cityApi = new CityApiService();
+            var listcity = cityApi.GetCities();
 
 
             foreach (var p in listclinic)
             {
-                if (dvgCity.SelectedColumns == p.City)
+                if (p.City == listcity[id - 1].Name)
+                {
+                    object[] row = { p.Id, p.City, p.Name, p.Street };
+                    dvgClinics.Rows.Add(row);
+
+                }
+                else
                 {
 
                 }
-                object[] row = { p.Id, p.Name, p.Street };
-                dvgClinics.Rows.Add(row);
-            }*/
+            }
+            //=======================
+
+            dvgClinics.BringToFront();
+        }
+
+        private void dvgDoctor_SelectionChanged(object sender, EventArgs e)
+        {
+            int id = dvgDoctor.CurrentRow.Index;
+            //  int id = 36;
+            //=================================
+            DoctorApiService doctorApi = new DoctorApiService();
+            var listdoctor = doctorApi.GetDoctor();
+
+            txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
+
+            txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
+            txtBirthDoctor.Text = dvgDoctor.CurrentRow.Cells[3].Value.ToString();
+
+            var listcl = clientApi.GetClients();
+            foreach (var p in listcl)
+            {
+                if (p.Email == EmailSearch)
+                {
+
+                    txtNameClient.Text = p.Name;
+                    txtSurNameClient.Text = p.Surname;
+                    txtBirthClient.Text = p.DateBirthday.ToShortDateString();
+                    break;
+                }
+            }
+            pShedule.BringToFront();
+        }
+
+        private void btnConfirmShedule_Click(object sender, EventArgs e)
+        {
+            int id = dvgDoctor.CurrentRow.Index;
+            //  int id = 36;
+            //=================================
+            DoctorApiService doctorApi = new DoctorApiService();
+            var listdoctor = doctorApi.GetDoctor();
+
+            txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
+
+            txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
+            txtBirthDoctor.Text = dvgDoctor.CurrentRow.Cells[3].Value.ToString();
+
+            var listcl = clientApi.GetClients();
+            foreach (var p in listcl)
+            {
+                if (p.Email == EmailSearch)
+                {
+
+                    txtNameClient.Text = p.Name;
+                    txtSurNameClient.Text = p.Surname;
+                    txtBirthClient.Text = p.DateBirthday.ToShortDateString();
+                    object[] row = { p.Id, p.Name + " " + p.Surname, dvgDoctor.CurrentRow.Cells[1].Value.ToString() + " " + dvgDoctor.CurrentRow.Cells[2].Value.ToString(), dateShedulePicker.Value.ToShortDateString() };
+                    dvgShedules.Rows.Add(row);
+                    break;
+                }
+            }
+
+            //===================================================
+
+
+            SidePanel.Height = btnSchedule.Height;
+            SidePanel.Top = btnSchedule.Top;
+            dvgShedules.BringToFront();
         }
     }
 }

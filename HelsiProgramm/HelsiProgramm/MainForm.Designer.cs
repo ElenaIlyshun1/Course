@@ -40,6 +40,10 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dvgClinics = new System.Windows.Forms.DataGridView();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgDoctor = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,16 +57,34 @@
             this.dvgCity = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pShedule = new System.Windows.Forms.Panel();
+            this.btnConfirmShedule = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtBirthDoctor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtSurnameDoctor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtNameDoctor = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtBirthClient = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtSurNameClient = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtNameClient = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.dateShedulePicker = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dvgShedules = new System.Windows.Forms.DataGridView();
+            this.ID_S = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pacient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Doctors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateTimeShedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgShedule = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).BeginInit();
+            this.pShedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgShedules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgShedule)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -307,10 +329,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(1101, 23);
+            this.btnClose.Location = new System.Drawing.Point(901, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(22, 21);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -322,9 +344,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel2.Controls.Add(this.btnClose);
             this.panel2.Location = new System.Drawing.Point(209, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(926, 17);
+            this.panel2.Size = new System.Drawing.Size(926, 30);
             this.panel2.TabIndex = 12;
             // 
             // dvgClinics
@@ -337,14 +360,41 @@
             this.city,
             this.ColName,
             this.street});
-            this.dvgClinics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvgClinics.Location = new System.Drawing.Point(0, 0);
+            this.dvgClinics.Location = new System.Drawing.Point(209, 28);
             this.dvgClinics.Margin = new System.Windows.Forms.Padding(4);
             this.dvgClinics.Name = "dvgClinics";
             this.dvgClinics.ReadOnly = true;
             this.dvgClinics.RowTemplate.Height = 24;
-            this.dvgClinics.Size = new System.Drawing.Size(1135, 660);
+            this.dvgClinics.Size = new System.Drawing.Size(926, 632);
             this.dvgClinics.TabIndex = 13;
+            // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "Id";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Visible = false;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "Місто";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            // 
+            // ColName
+            // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColName.FillWeight = 60F;
+            this.ColName.HeaderText = "Назва";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // street
+            // 
+            this.street.HeaderText = "Вулиця";
+            this.street.Name = "street";
+            this.street.ReadOnly = true;
+            this.street.Width = 500;
             // 
             // dvgDoctor
             // 
@@ -356,14 +406,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.datebirth});
-            this.dvgDoctor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvgDoctor.Location = new System.Drawing.Point(0, 0);
+            this.dvgDoctor.Location = new System.Drawing.Point(209, 28);
             this.dvgDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.dvgDoctor.Name = "dvgDoctor";
             this.dvgDoctor.ReadOnly = true;
             this.dvgDoctor.RowTemplate.Height = 24;
-            this.dvgDoctor.Size = new System.Drawing.Size(1135, 660);
+            this.dvgDoctor.Size = new System.Drawing.Size(926, 632);
             this.dvgDoctor.TabIndex = 14;
+            this.dvgDoctor.SelectionChanged += new System.EventHandler(this.dvgDoctor_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -403,13 +453,12 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dgwClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwClients.Location = new System.Drawing.Point(0, 0);
+            this.dgwClients.Location = new System.Drawing.Point(209, 28);
             this.dgwClients.Margin = new System.Windows.Forms.Padding(4);
             this.dgwClients.Name = "dgwClients";
             this.dgwClients.ReadOnly = true;
             this.dgwClients.RowTemplate.Height = 24;
-            this.dgwClients.Size = new System.Drawing.Size(1135, 660);
+            this.dgwClients.Size = new System.Drawing.Size(926, 632);
             this.dgwClients.TabIndex = 15;
             // 
             // dataGridViewTextBoxColumn4
@@ -448,13 +497,12 @@
             this.dvgCity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.dvgCity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvgCity.Location = new System.Drawing.Point(209, 0);
+            this.dvgCity.Location = new System.Drawing.Point(209, 28);
             this.dvgCity.Margin = new System.Windows.Forms.Padding(4);
             this.dvgCity.Name = "dvgCity";
             this.dvgCity.ReadOnly = true;
             this.dvgCity.RowTemplate.Height = 24;
-            this.dvgCity.Size = new System.Drawing.Size(926, 660);
+            this.dvgCity.Size = new System.Drawing.Size(926, 632);
             this.dvgCity.TabIndex = 16;
             this.dvgCity.SelectionChanged += new System.EventHandler(this.dvgCity_SelectionChanged);
             // 
@@ -473,33 +521,273 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // ColId
+            // pShedule
             // 
-            this.ColId.HeaderText = "Id";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Visible = false;
+            this.pShedule.BackColor = System.Drawing.Color.Gainsboro;
+            this.pShedule.Controls.Add(this.btnConfirmShedule);
+            this.pShedule.Controls.Add(this.txtBirthDoctor);
+            this.pShedule.Controls.Add(this.txtSurnameDoctor);
+            this.pShedule.Controls.Add(this.txtNameDoctor);
+            this.pShedule.Controls.Add(this.txtBirthClient);
+            this.pShedule.Controls.Add(this.txtSurNameClient);
+            this.pShedule.Controls.Add(this.txtNameClient);
+            this.pShedule.Controls.Add(this.dateShedulePicker);
+            this.pShedule.Location = new System.Drawing.Point(209, 30);
+            this.pShedule.Name = "pShedule";
+            this.pShedule.Size = new System.Drawing.Size(926, 663);
+            this.pShedule.TabIndex = 17;
             // 
-            // city
+            // btnConfirmShedule
             // 
-            this.city.HeaderText = "Місто";
-            this.city.Name = "city";
-            this.city.ReadOnly = true;
+            this.btnConfirmShedule.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnConfirmShedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnConfirmShedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfirmShedule.BorderRadius = 0;
+            this.btnConfirmShedule.ButtonText = "                  Confirm";
+            this.btnConfirmShedule.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmShedule.DisabledColor = System.Drawing.Color.Gray;
+            this.btnConfirmShedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnConfirmShedule.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnConfirmShedule.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfirmShedule.Iconimage")));
+            this.btnConfirmShedule.Iconimage_right = null;
+            this.btnConfirmShedule.Iconimage_right_Selected = null;
+            this.btnConfirmShedule.Iconimage_Selected = null;
+            this.btnConfirmShedule.IconMarginLeft = 0;
+            this.btnConfirmShedule.IconMarginRight = 0;
+            this.btnConfirmShedule.IconRightVisible = true;
+            this.btnConfirmShedule.IconRightZoom = 0D;
+            this.btnConfirmShedule.IconVisible = true;
+            this.btnConfirmShedule.IconZoom = 90D;
+            this.btnConfirmShedule.IsTab = false;
+            this.btnConfirmShedule.Location = new System.Drawing.Point(322, 503);
+            this.btnConfirmShedule.Name = "btnConfirmShedule";
+            this.btnConfirmShedule.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnConfirmShedule.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnConfirmShedule.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnConfirmShedule.selected = false;
+            this.btnConfirmShedule.Size = new System.Drawing.Size(281, 48);
+            this.btnConfirmShedule.TabIndex = 8;
+            this.btnConfirmShedule.Text = "                  Confirm";
+            this.btnConfirmShedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmShedule.Textcolor = System.Drawing.Color.White;
+            this.btnConfirmShedule.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmShedule.Click += new System.EventHandler(this.btnConfirmShedule_Click);
             // 
-            // ColName
+            // txtBirthDoctor
             // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColName.FillWeight = 60F;
-            this.ColName.HeaderText = "Назва";
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
+            this.txtBirthDoctor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBirthDoctor.Enabled = false;
+            this.txtBirthDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBirthDoctor.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtBirthDoctor.HintForeColor = System.Drawing.Color.Empty;
+            this.txtBirthDoctor.HintText = "";
+            this.txtBirthDoctor.isPassword = false;
+            this.txtBirthDoctor.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtBirthDoctor.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtBirthDoctor.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtBirthDoctor.LineThickness = 3;
+            this.txtBirthDoctor.Location = new System.Drawing.Point(623, 191);
+            this.txtBirthDoctor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBirthDoctor.Name = "txtBirthDoctor";
+            this.txtBirthDoctor.Size = new System.Drawing.Size(278, 44);
+            this.txtBirthDoctor.TabIndex = 7;
+            this.txtBirthDoctor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // street
+            // txtSurnameDoctor
             // 
-            this.street.HeaderText = "Вулиця";
-            this.street.Name = "street";
-            this.street.ReadOnly = true;
-            this.street.Width = 500;
+            this.txtSurnameDoctor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSurnameDoctor.Enabled = false;
+            this.txtSurnameDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtSurnameDoctor.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtSurnameDoctor.HintForeColor = System.Drawing.Color.Empty;
+            this.txtSurnameDoctor.HintText = "";
+            this.txtSurnameDoctor.isPassword = false;
+            this.txtSurnameDoctor.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtSurnameDoctor.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtSurnameDoctor.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtSurnameDoctor.LineThickness = 3;
+            this.txtSurnameDoctor.Location = new System.Drawing.Point(623, 113);
+            this.txtSurnameDoctor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurnameDoctor.Name = "txtSurnameDoctor";
+            this.txtSurnameDoctor.Size = new System.Drawing.Size(278, 44);
+            this.txtSurnameDoctor.TabIndex = 6;
+            this.txtSurnameDoctor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtNameDoctor
+            // 
+            this.txtNameDoctor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNameDoctor.Enabled = false;
+            this.txtNameDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtNameDoctor.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtNameDoctor.HintForeColor = System.Drawing.Color.Empty;
+            this.txtNameDoctor.HintText = "";
+            this.txtNameDoctor.isPassword = false;
+            this.txtNameDoctor.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtNameDoctor.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtNameDoctor.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtNameDoctor.LineThickness = 3;
+            this.txtNameDoctor.Location = new System.Drawing.Point(623, 47);
+            this.txtNameDoctor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNameDoctor.Name = "txtNameDoctor";
+            this.txtNameDoctor.Size = new System.Drawing.Size(278, 44);
+            this.txtNameDoctor.TabIndex = 5;
+            this.txtNameDoctor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtBirthClient
+            // 
+            this.txtBirthClient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBirthClient.Enabled = false;
+            this.txtBirthClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBirthClient.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtBirthClient.HintForeColor = System.Drawing.Color.Empty;
+            this.txtBirthClient.HintText = "";
+            this.txtBirthClient.isPassword = false;
+            this.txtBirthClient.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtBirthClient.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtBirthClient.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtBirthClient.LineThickness = 3;
+            this.txtBirthClient.Location = new System.Drawing.Point(25, 191);
+            this.txtBirthClient.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBirthClient.Name = "txtBirthClient";
+            this.txtBirthClient.Size = new System.Drawing.Size(278, 44);
+            this.txtBirthClient.TabIndex = 4;
+            this.txtBirthClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtSurNameClient
+            // 
+            this.txtSurNameClient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSurNameClient.Enabled = false;
+            this.txtSurNameClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtSurNameClient.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtSurNameClient.HintForeColor = System.Drawing.Color.Empty;
+            this.txtSurNameClient.HintText = "";
+            this.txtSurNameClient.isPassword = false;
+            this.txtSurNameClient.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtSurNameClient.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtSurNameClient.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtSurNameClient.LineThickness = 3;
+            this.txtSurNameClient.Location = new System.Drawing.Point(25, 113);
+            this.txtSurNameClient.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurNameClient.Name = "txtSurNameClient";
+            this.txtSurNameClient.Size = new System.Drawing.Size(278, 44);
+            this.txtSurNameClient.TabIndex = 3;
+            this.txtSurNameClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtNameClient
+            // 
+            this.txtNameClient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNameClient.Enabled = false;
+            this.txtNameClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtNameClient.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtNameClient.HintForeColor = System.Drawing.Color.Empty;
+            this.txtNameClient.HintText = "";
+            this.txtNameClient.isPassword = false;
+            this.txtNameClient.LineFocusedColor = System.Drawing.Color.SeaGreen;
+            this.txtNameClient.LineIdleColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtNameClient.LineMouseHoverColor = System.Drawing.Color.SeaGreen;
+            this.txtNameClient.LineThickness = 3;
+            this.txtNameClient.Location = new System.Drawing.Point(25, 47);
+            this.txtNameClient.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNameClient.Name = "txtNameClient";
+            this.txtNameClient.Size = new System.Drawing.Size(278, 44);
+            this.txtNameClient.TabIndex = 2;
+            this.txtNameClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // dateShedulePicker
+            // 
+            this.dateShedulePicker.BackColor = System.Drawing.Color.SeaGreen;
+            this.dateShedulePicker.BorderRadius = 0;
+            this.dateShedulePicker.ForeColor = System.Drawing.Color.White;
+            this.dateShedulePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateShedulePicker.FormatCustom = "MMMMdd, yyyy ";
+            this.dateShedulePicker.Location = new System.Drawing.Point(310, 361);
+            this.dateShedulePicker.Name = "dateShedulePicker";
+            this.dateShedulePicker.Size = new System.Drawing.Size(303, 36);
+            this.dateShedulePicker.TabIndex = 0;
+            this.dateShedulePicker.Value = new System.DateTime(2019, 11, 12, 17, 7, 17, 836);
+            // 
+            // dvgShedules
+            // 
+            this.dvgShedules.AllowUserToAddRows = false;
+            this.dvgShedules.AllowUserToDeleteRows = false;
+            this.dvgShedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgShedules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_S,
+            this.Pacient,
+            this.Doctors,
+            this.DateTimeShedule});
+            this.dvgShedules.Location = new System.Drawing.Point(209, 30);
+            this.dvgShedules.Name = "dvgShedules";
+            this.dvgShedules.ReadOnly = true;
+            this.dvgShedules.Size = new System.Drawing.Size(926, 630);
+            this.dvgShedules.TabIndex = 9;
+            // 
+            // ID_S
+            // 
+            this.ID_S.HeaderText = "ID";
+            this.ID_S.Name = "ID_S";
+            this.ID_S.ReadOnly = true;
+            this.ID_S.Visible = false;
+            // 
+            // Pacient
+            // 
+            this.Pacient.HeaderText = "Пацієнт";
+            this.Pacient.Name = "Pacient";
+            this.Pacient.ReadOnly = true;
+            this.Pacient.Width = 283;
+            // 
+            // Doctors
+            // 
+            this.Doctors.HeaderText = "ЛІкарь";
+            this.Doctors.Name = "Doctors";
+            this.Doctors.ReadOnly = true;
+            this.Doctors.Width = 300;
+            // 
+            // DateTimeShedule
+            // 
+            this.DateTimeShedule.HeaderText = "Дата прийому";
+            this.DateTimeShedule.Name = "DateTimeShedule";
+            this.DateTimeShedule.ReadOnly = true;
+            this.DateTimeShedule.Width = 300;
+            // 
+            // doctor
+            // 
+            this.doctor.FillWeight = 60F;
+            this.doctor.HeaderText = "Лікарь";
+            this.doctor.Name = "doctor";
+            this.doctor.ReadOnly = true;
+            this.doctor.Width = 432;
+            // 
+            // client
+            // 
+            this.client.FillWeight = 60F;
+            this.client.HeaderText = "Пацієнт";
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            this.client.Width = 450;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // dvgShedule
+            // 
+            this.dvgShedule.AllowUserToAddRows = false;
+            this.dvgShedule.AllowUserToDeleteRows = false;
+            this.dvgShedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgShedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.client,
+            this.doctor});
+            this.dvgShedule.Location = new System.Drawing.Point(209, 30);
+            this.dvgShedule.Name = "dvgShedule";
+            this.dvgShedule.ReadOnly = true;
+            this.dvgShedule.RowTemplate.Height = 24;
+            this.dvgShedule.Size = new System.Drawing.Size(926, 630);
+            this.dvgShedule.TabIndex = 18;
             // 
             // MainForm
             // 
@@ -507,23 +795,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
-            this.Controls.Add(this.dvgCity);
+            this.Controls.Add(this.pShedule);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgwClients);
             this.Controls.Add(this.dvgDoctor);
             this.Controls.Add(this.dvgClinics);
+            this.Controls.Add(this.dvgCity);
+            this.Controls.Add(this.dgwClients);
+            this.Controls.Add(this.dvgShedules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgClinics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDoctor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).EndInit();
+            this.pShedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dvgShedules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgShedule)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -558,5 +851,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn city;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn street;
+        private System.Windows.Forms.Panel pShedule;
+        private Bunifu.Framework.UI.BunifuDatepicker dateShedulePicker;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtBirthDoctor;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtSurnameDoctor;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNameDoctor;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtBirthClient;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtSurNameClient;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox txtNameClient;
+        private Bunifu.Framework.UI.BunifuFlatButton btnConfirmShedule;
+        private System.Windows.Forms.DataGridView dvgShedules;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_S;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pacient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Doctors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateTimeShedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridView dvgShedule;
     }
 }
