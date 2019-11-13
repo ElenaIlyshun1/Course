@@ -548,7 +548,7 @@
             this.btnConfirmShedule.DisabledColor = System.Drawing.Color.Gray;
             this.btnConfirmShedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnConfirmShedule.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnConfirmShedule.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfirmShedule.Iconimage")));
+            this.btnConfirmShedule.Iconimage = null;
             this.btnConfirmShedule.Iconimage_right = null;
             this.btnConfirmShedule.Iconimage_right_Selected = null;
             this.btnConfirmShedule.Iconimage_Selected = null;
@@ -705,6 +705,7 @@
             this.dateShedulePicker.Size = new System.Drawing.Size(303, 36);
             this.dateShedulePicker.TabIndex = 0;
             this.dateShedulePicker.Value = new System.DateTime(2019, 11, 12, 17, 7, 17, 836);
+            this.dateShedulePicker.onValueChanged += new System.EventHandler(this.dateShedulePicker_onValueChanged);
             // 
             // dvgShedules
             // 
