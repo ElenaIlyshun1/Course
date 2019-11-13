@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,9 +19,12 @@ namespace HelsiProgramm
 {
     public partial class MainForm : Form
     {
+        public int IdDoctors;
         string EmailSearch;
         ContactProfil contactProfil;
         ClientApiService clientApi = new ClientApiService();
+        ScheduleApiService scheduleApi = new ScheduleApiService();
+        DoctorApiService doctorApi = new DoctorApiService();
         public MainForm(string email)
         {
             EmailSearch = email;
@@ -34,8 +39,6 @@ namespace HelsiProgramm
                 object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday };
                 dgwClients.Rows.Add(row);
             }
-
-            //================================
 
             //=============================
 
@@ -53,6 +56,7 @@ namespace HelsiProgramm
             {
                 object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
                 dvgDoctor.Rows.Add(row);
+                IdDoctors = p.Id;
             }
 
         }
@@ -154,8 +158,6 @@ namespace HelsiProgramm
         private void dvgDoctor_SelectionChanged(object sender, EventArgs e)
         {
             int id = dvgDoctor.CurrentRow.Index;
-            //  int id = 36;
-            //=================================
             DoctorApiService doctorApi = new DoctorApiService();
             var listdoctor = doctorApi.GetDoctor();
 
@@ -169,7 +171,6 @@ namespace HelsiProgramm
             {
                 if (p.Email == EmailSearch)
                 {
-
                     txtNameClient.Text = p.Name;
                     txtSurNameClient.Text = p.Surname;
                     txtBirthClient.Text = p.DateBirthday.ToShortDateString();
@@ -178,39 +179,48 @@ namespace HelsiProgramm
             }
             pShedule.BringToFront();
         }
-
+     
         private void btnConfirmShedule_Click(object sender, EventArgs e)
         {
 
             int id = dvgDoctor.CurrentRow.Index;
-            //  int id = 36;
-            //=================================
-            DoctorApiService doctorApi = new DoctorApiService();
+            //txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
+            //txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
+            //txtBirthDoctor.Text = dvgDoctor.CurrentRow.Cells[3].Value.ToString();
+
+            var listclient = clientApi.GetClients();
             var listdoctor = doctorApi.GetDoctor();
 
-            txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
-
-            txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
-            txtBirthDoctor.Text = dvgDoctor.CurrentRow.Cells[3].Value.ToString();
-
-            var listcl = clientApi.GetClients();
-            foreach (var p in listcl)
+            foreach (var p in listclient)
             {
                 if (p.Email == EmailSearch)
                 {
 
-                    txtNameClient.Text = p.Name;
-                    txtSurNameClient.Text = p.Surname;
-                    txtBirthClient.Text = p.DateBirthday.ToShortDateString();
-                    object[] row = { p.Id, p.Name + " " + p.Surname, dvgDoctor.CurrentRow.Cells[1].Value.ToString() + " " + dvgDoctor.CurrentRow.Cells[2].Value.ToString(), dateShedulePicker.Value.ToShortDateString() };
-                    dvgShedules.Rows.Add(row);
-                    break;
+                    ScheduleAddModel scheduleAddModel = new ScheduleAddModel
+                    {
+                        ScheduleDateIn = dateShedulePicker.Value,
+                        IdClient = p.Id,
+                        IdDoctor = IdDoctors
+                    };
+
+                    scheduleApi.CreateSchedule(scheduleAddModel);
                 }
             }
 
+            var listschedule = scheduleApi.GetSchedule();
+            foreach (var p in listschedule)
+            {
+                object[] row = { p.Id, p.IdClient, p.IdDoctor, p.ScheduleDateIn };
+                dvgShedules.Rows.Add(row);
+            }
+            //txtNameClient.Text = p.Name;
+            //txtSurNameClient.Text = p.Surname;
+            //txtBirthClient.Text = p.DateBirthday.ToShortDateString();
+            //object[] row = { p.Id, p.Name + " " + p.Surname, dvgDoctor.CurrentRow.Cells[1].Value.ToString() + " " + dvgDoctor.CurrentRow.Cells[2].Value.ToString(), dateShedulePicker.Value.ToShortDateString() };
+            //dvgShedules.Rows.Add(row);
+            //break;
+
             //===================================================
-
-
             SidePanel.Height = btnSchedule.Height;
             SidePanel.Top = btnSchedule.Top;
             dvgShedules.BringToFront();
