@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace WebHelsi.Entities
 {
+
+    [Table("tblSchedule")]
     public class Schedule
     {
         [Key]
         public int Id { get; set; }
         [Required, StringLength(maximumLength: 250)]
         public DateTime ScheduleDateIn { get; set; }
-        public DateTime ScheduleDateOut { get; set; }
+       // public DateTime ScheduleDateOut { get; set; }
 
         [ForeignKey("Client")]
         public int ClientId { get; set; }

@@ -73,15 +73,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\AccountApiService.cs" />
+    <Compile Include="Concrete\CityApiService.cs" />
     <Compile Include="Concrete\ClientApiService.cs" />
     <Compile Include="Concrete\ClinicApiService.cs" />
     <Compile Include="Concrete\DoctorApiService.cs" />
+    <Compile Include="Concrete\ScheduleApiService.cs" />
+    <Compile Include="Interfaces\IScheduleService.cs" />
+    <Compile Include="Interfaces\ICityService.cs" />
     <Compile Include="Interfaces\IClinicService.cs" />
     <Compile Include="Interfaces\IClientService.cs" />
     <Compile Include="Interfaces\IDoctorService.cs" />
+    <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\ClinicModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\ScheduleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

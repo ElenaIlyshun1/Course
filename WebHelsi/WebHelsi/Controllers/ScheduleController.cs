@@ -13,13 +13,13 @@ namespace WebHelsi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClinicsController : ControllerBase
+    public class ScheduleController : ControllerBase
     {
         private readonly EFDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly IHostingEnvironment _env;
 
-        public ClinicsController(IHostingEnvironment env,
+        public ScheduleController(IHostingEnvironment env,
             IConfiguration configuration,
             EFDbContext context)
         {
@@ -30,61 +30,60 @@ namespace WebHelsi.Controllers
         [HttpGet]
         public IActionResult MakeList()
         {
-            var model = _context.Clinics.Select(
-                p => new ClinicVM
+            var model = _context.Schedules.Select(
+                p => new ScheduleViewModel
                 {
                     Id = p.Id,
-                    Name = p.Name,
-                    City= p.City.Name,
-                    Street = p.Street
-
+                    ScheduleDateIn = p.ScheduleDateIn
                 }).ToList();
             return Ok(model);
         }
 
 
         [HttpPost]
-        public IActionResult Create([FromBody]ClinicAddVM model)
+        public IActionResult Create([FromBody]ScheduleAddViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            Clinic m = new Clinic
+            Schedule sch = new Schedule
             {
-                Name = model.Name
+                ScheduleDateIn = model.ScheduleDateIn,
+                ClientId = model.IdClient,
+                DoctorId = model.IdDoctor                
             };
-            _context.Clinics.Add(m);
+            _context.Schedules.Add(sch);
             _context.SaveChanges();
-            return Ok(m.Id);
+            return Ok(sch.Id);
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody]ClinicDeleteVM model)
+        public IActionResult Delete([FromBody]ScheduleDeleteViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var type = _context.Clinics.SingleOrDefault(p => p.Id == model.Id);
-            if (type != null)
+            var sch = _context.Schedules.SingleOrDefault(p => p.Id == model.Id);
+            if (sch != null)
             {
-                _context.Clinics.Remove(type);
+                _context.Schedules.Remove(sch);
                 _context.SaveChanges();
             }
             return Ok();
         }
         [HttpPut]
-        public IActionResult Update([FromBody]ClinicVM model)
+        public IActionResult Update([FromBody]ScheduleViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var prod = _context.Clinics.SingleOrDefault(p => p.Id == model.Id);
-            if (prod != null)
+            var sch = _context.Schedules.SingleOrDefault(p => p.Id == model.Id);
+            if (sch != null)
             {
-                prod.Name = model.Name;
+                sch.ScheduleDateIn = model.ScheduleDateIn;
                 _context.SaveChanges();
             }
             return Ok();
