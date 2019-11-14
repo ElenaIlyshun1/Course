@@ -39,7 +39,6 @@ namespace ServiceDLL.Concrete
             return content;
             //return tokenInfo.token;
         }
-
         public List<ScheduleModel> GetSchedule()
         {
             Debug.WriteLine("-----GetSchedule() thread----- {0}",
@@ -50,8 +49,7 @@ namespace ServiceDLL.Concrete
             string data = schedul.DownloadString(_url);
             var list = JsonConvert.DeserializeObject<List<ScheduleModel>>(data);
             return list;
-        }
-
+        }    
         public Task<List<ScheduleModel>> GetScheduleAsync()
         {
             return Task.Run(() => GetSchedule());
