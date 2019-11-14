@@ -98,6 +98,7 @@
             this.txtPswd.TabIndex = 3;
             this.txtPswd.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPswd.OnValueChanged += new System.EventHandler(this.txtPswd_OnValueChanged);
+            this.txtPswd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPswd_KeyPress);
             // 
             // pictureBox2
             // 

@@ -32,7 +32,6 @@
             this.SidePanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSchedule = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnAbout = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnContact = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnDoctor = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnReform = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -66,6 +65,9 @@
             this.txtSurNameClient = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtNameClient = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.dateShedulePicker = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.pAbout = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dvgShedules = new System.Windows.Forms.DataGridView();
             this.ID_S = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pacient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).BeginInit();
             this.pShedule.SuspendLayout();
+            this.pAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgShedules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgShedule)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +104,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel1.Controls.Add(this.btnSchedule);
-            this.panel1.Controls.Add(this.btnAbout);
             this.panel1.Controls.Add(this.btnContact);
             this.panel1.Controls.Add(this.BtnDoctor);
             this.panel1.Controls.Add(this.btnReform);
@@ -146,42 +150,6 @@
             this.btnSchedule.Textcolor = System.Drawing.Color.White;
             this.btnSchedule.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnAbout.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAbout.BorderRadius = 0;
-            this.btnAbout.ButtonText = "   About";
-            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbout.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAbout.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbout.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAbout.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAbout.Iconimage")));
-            this.btnAbout.Iconimage_right = null;
-            this.btnAbout.Iconimage_right_Selected = null;
-            this.btnAbout.Iconimage_Selected = null;
-            this.btnAbout.IconMarginLeft = 0;
-            this.btnAbout.IconMarginRight = 0;
-            this.btnAbout.IconRightVisible = true;
-            this.btnAbout.IconRightZoom = 0D;
-            this.btnAbout.IconVisible = true;
-            this.btnAbout.IconZoom = 90D;
-            this.btnAbout.IsTab = false;
-            this.btnAbout.Location = new System.Drawing.Point(12, 391);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Normalcolor = System.Drawing.Color.DarkSeaGreen;
-            this.btnAbout.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnAbout.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAbout.selected = false;
-            this.btnAbout.Size = new System.Drawing.Size(197, 60);
-            this.btnAbout.TabIndex = 9;
-            this.btnAbout.Text = "   About";
-            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbout.Textcolor = System.Drawing.Color.White;
-            this.btnAbout.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // btnContact
             // 
@@ -708,6 +676,35 @@
             this.dateShedulePicker.Value = new System.DateTime(2019, 11, 12, 17, 7, 17, 836);
             this.dateShedulePicker.onValueChanged += new System.EventHandler(this.dateShedulePicker_onValueChanged);
             // 
+            // pAbout
+            // 
+            this.pAbout.Controls.Add(this.pictureBox2);
+            this.pAbout.Controls.Add(this.pictureBox1);
+            this.pAbout.Location = new System.Drawing.Point(209, 28);
+            this.pAbout.Name = "pAbout";
+            this.pAbout.Size = new System.Drawing.Size(926, 630);
+            this.pAbout.TabIndex = 9;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 295);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(926, 335);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(926, 297);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // dvgShedules
             // 
             this.dvgShedules.AllowUserToAddRows = false;
@@ -799,12 +796,13 @@
             this.ClientSize = new System.Drawing.Size(1135, 660);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pAbout);
+            this.Controls.Add(this.pShedule);
             this.Controls.Add(this.dvgDoctor);
             this.Controls.Add(this.dvgClinics);
             this.Controls.Add(this.dvgCity);
             this.Controls.Add(this.dgwClients);
             this.Controls.Add(this.dvgShedules);
-            this.Controls.Add(this.pShedule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -818,6 +816,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCity)).EndInit();
             this.pShedule.ResumeLayout(false);
+            this.pAbout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgShedules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgShedule)).EndInit();
             this.ResumeLayout(false);
@@ -829,7 +830,6 @@
         private System.Windows.Forms.Panel SidePanel;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton btnClinic;
-        private Bunifu.Framework.UI.BunifuFlatButton btnAbout;
         private Bunifu.Framework.UI.BunifuFlatButton btnContact;
         private Bunifu.Framework.UI.BunifuFlatButton BtnDoctor;
         private Bunifu.Framework.UI.BunifuFlatButton btnReform;
@@ -872,5 +872,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridView dvgShedule;
+        private System.Windows.Forms.Panel pAbout;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

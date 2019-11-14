@@ -77,6 +77,7 @@ namespace HelsiProgramm
         {
             SidePanel.Height = btnReform.Height;
             SidePanel.Top = btnReform.Top;
+            pAbout.BringToFront();
         }
 
         private void BtnDoctor_Click(object sender, EventArgs e)
@@ -84,8 +85,6 @@ namespace HelsiProgramm
             SidePanel.Height = BtnDoctor.Height;
             SidePanel.Top = BtnDoctor.Top;
             dvgDoctor.BringToFront();
-
-
         }
 
         private void btnContact_Click(object sender, EventArgs e)
@@ -111,11 +110,6 @@ namespace HelsiProgramm
 
         }
 
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
-            SidePanel.Height = btnAbout.Height;
-            SidePanel.Top = btnAbout.Top;
-        }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
