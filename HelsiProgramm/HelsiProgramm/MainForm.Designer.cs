@@ -705,6 +705,7 @@
             this.dateShedulePicker.Size = new System.Drawing.Size(303, 36);
             this.dateShedulePicker.TabIndex = 0;
             this.dateShedulePicker.Value = new System.DateTime(2019, 11, 12, 17, 7, 17, 836);
+            this.dateShedulePicker.onValueChanged += new System.EventHandler(this.dateShedulePicker_onValueChanged);
             // 
             // dvgShedules
             // 
@@ -807,6 +808,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.panel2.ResumeLayout(false);

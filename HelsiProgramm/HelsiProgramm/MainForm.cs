@@ -27,6 +27,7 @@ namespace HelsiProgramm
         DoctorApiService doctorApi = new DoctorApiService();
         public MainForm(string email)
         {
+        
             EmailSearch = email;
             InitializeComponent();
             SidePanel.Height = btnClinic.Height;
@@ -58,7 +59,7 @@ namespace HelsiProgramm
                 dvgDoctor.Rows.Add(row);
                 
             }
-
+            
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -174,6 +175,7 @@ namespace HelsiProgramm
      
         private void btnConfirmShedule_Click(object sender, EventArgs e)
         {
+
             int id = dvgDoctor.CurrentRow.Index;
             //txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
             //txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
@@ -216,6 +218,24 @@ namespace HelsiProgramm
             SidePanel.Height = btnSchedule.Height;
             SidePanel.Top = btnSchedule.Top;
             dvgShedules.BringToFront();
+
+        }
+        private void dateShedulePicker_onValueChanged(object sender, EventArgs e)
+        {
+            if (dateShedulePicker.Value < DateTime.Today)
+            {
+                dateShedulePicker.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                dateShedulePicker.BackColor = Color.SeaGreen;
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dvgDoctor.FirstDisplayedCell = null;
+            dvgDoctor.ClearSelection();
         }
     }
 }
