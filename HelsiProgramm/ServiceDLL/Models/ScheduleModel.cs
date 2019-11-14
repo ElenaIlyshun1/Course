@@ -10,8 +10,8 @@ namespace ServiceDLL.Models
     {
         public int Id { get; set; }
         public DateTime ScheduleDateIn { get; set; }
-        public int IdDoctor { get; set; }
-        public int IdClient { get; set; }
+        public int DoctorId { get; set; }
+        public int ClientId { get; set; }
 
 
     }
@@ -19,7 +19,7 @@ namespace ServiceDLL.Models
     public class ScheduleAddModel
     {
         public DateTime ScheduleDateIn { get; set; }
-        public int IdDoctor { get; set; }
-        public int IdClient { get; set; }
+        public int DoctorId { get; set; }
+        public int ClientId { get; set; }
     }
 }

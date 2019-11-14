@@ -548,7 +548,7 @@
             this.btnConfirmShedule.DisabledColor = System.Drawing.Color.Gray;
             this.btnConfirmShedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnConfirmShedule.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnConfirmShedule.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfirmShedule.Iconimage")));
+            this.btnConfirmShedule.Iconimage = null;
             this.btnConfirmShedule.Iconimage_right = null;
             this.btnConfirmShedule.Iconimage_right_Selected = null;
             this.btnConfirmShedule.Iconimage_Selected = null;
@@ -795,7 +795,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1135, 660);
-            this.Controls.Add(this.pShedule);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dvgDoctor);
@@ -803,6 +802,7 @@
             this.Controls.Add(this.dvgCity);
             this.Controls.Add(this.dgwClients);
             this.Controls.Add(this.dvgShedules);
+            this.Controls.Add(this.pShedule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

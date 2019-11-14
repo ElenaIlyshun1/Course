@@ -50,8 +50,8 @@ namespace WebHelsi.Controllers
             Schedule sch = new Schedule
             {
                 ScheduleDateIn = model.ScheduleDateIn,
-                ClientId = model.IdClient,
-                DoctorId = model.IdDoctor                
+                ClientId = model.ClientId,
+                DoctorId = model.DoctorId                
             };
             _context.Schedules.Add(sch);
             _context.SaveChanges();

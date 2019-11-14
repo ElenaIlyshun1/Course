@@ -9,15 +9,15 @@ namespace WebHelsi.ViewModel
     {
         public int Id { get; set; }
         public DateTime ScheduleDateIn { get; set; }
-        public int IdDoctor { get; set; }
-        public int IdClient { get; set; }
+        public int DoctorId { get; set; }
+        public int ClientId { get; set; }
     }
 
     public class ScheduleAddViewModel
     {
         public DateTime ScheduleDateIn { get; set; }
-        public int IdDoctor { get; set; }
-        public int IdClient { get; set; }
+        public int DoctorId { get; set; }
+        public int ClientId { get; set; }
     }
 
     public class ScheduleDeleteViewModel

@@ -56,7 +56,7 @@ namespace HelsiProgramm
             {
                 object[] row = { p.Id, p.Name, p.Surname, p.DateBirthday.ToShortDateString() };
                 dvgDoctor.Rows.Add(row);
-                IdDoctors = p.Id;
+                
             }
 
         }
@@ -136,22 +136,14 @@ namespace HelsiProgramm
             CityApiService cityApi = new CityApiService();
             var listcity = cityApi.GetCities();
 
-
             foreach (var p in listclinic)
             {
                 if (p.City == listcity[id - 1].Name)
                 {
                     object[] row = { p.Id, p.City, p.Name, p.Street };
                     dvgClinics.Rows.Add(row);
-
-                }
-                else
-                {
-
                 }
             }
-            //=======================
-
             dvgClinics.BringToFront();
         }
 
@@ -161,8 +153,8 @@ namespace HelsiProgramm
             DoctorApiService doctorApi = new DoctorApiService();
             var listdoctor = doctorApi.GetDoctor();
 
+            IdDoctors = Convert.ToInt32(dvgDoctor.CurrentRow.Cells[0].Value);
             txtNameDoctor.Text = dvgDoctor.CurrentRow.Cells[1].Value.ToString();
-
             txtSurnameDoctor.Text = dvgDoctor.CurrentRow.Cells[2].Value.ToString();
             txtBirthDoctor.Text = dvgDoctor.CurrentRow.Cells[3].Value.ToString();
 
@@ -198,8 +190,8 @@ namespace HelsiProgramm
                     ScheduleAddModel scheduleAddModel = new ScheduleAddModel
                     {
                         ScheduleDateIn = dateShedulePicker.Value,
-                        IdClient = p.Id,
-                        IdDoctor = IdDoctors
+                        ClientId = p.Id,
+                        DoctorId = IdDoctors
                     };
 
                     scheduleApi.CreateSchedule(scheduleAddModel);
@@ -209,7 +201,8 @@ namespace HelsiProgramm
             var listschedule = scheduleApi.GetSchedule();
             foreach (var p in listschedule)
             {
-                object[] row = { p.Id, p.IdClient, p.IdDoctor, p.ScheduleDateIn };
+                object[] row = { p.Id, p.ClientId, p.DoctorId, p.ScheduleDateIn };
+                MessageBox.Show(p.ClientId.ToString());
                 dvgShedules.Rows.Add(row);
             }
             //txtNameClient.Text = p.Name;

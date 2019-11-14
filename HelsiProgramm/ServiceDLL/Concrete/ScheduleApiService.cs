@@ -45,9 +45,9 @@ namespace ServiceDLL.Concrete
             Debug.WriteLine("-----GetSchedule() thread----- {0}",
                 Thread.CurrentThread.ManagedThreadId);
 
-            var clinic = new WebClient();
-            clinic.Encoding = ASCIIEncoding.UTF8;
-            string data = clinic.DownloadString(_url);
+            var schedul = new WebClient();
+            schedul.Encoding = ASCIIEncoding.UTF8;
+            string data = schedul.DownloadString(_url);
             var list = JsonConvert.DeserializeObject<List<ScheduleModel>>(data);
             return list;
         }
