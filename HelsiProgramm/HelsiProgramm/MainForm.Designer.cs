@@ -413,6 +413,7 @@
             this.dvgDoctor.RowTemplate.Height = 24;
             this.dvgDoctor.Size = new System.Drawing.Size(926, 632);
             this.dvgDoctor.TabIndex = 14;
+            this.dvgDoctor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDoctor_CellClick);
             this.dvgDoctor.SelectionChanged += new System.EventHandler(this.dvgDoctor_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
