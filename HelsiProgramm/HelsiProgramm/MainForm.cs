@@ -27,6 +27,7 @@ namespace HelsiProgramm
         DoctorApiService doctorApi = new DoctorApiService();
         public MainForm(string email)
         {
+        
             EmailSearch = email;
             InitializeComponent();
             SidePanel.Height = btnClinic.Height;
@@ -58,7 +59,7 @@ namespace HelsiProgramm
                 dvgDoctor.Rows.Add(row);
                 IdDoctors = p.Id;
             }
-
+            
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -236,6 +237,12 @@ namespace HelsiProgramm
             {
                 dateShedulePicker.BackColor = Color.SeaGreen;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dvgDoctor.FirstDisplayedCell = null;
+            dvgDoctor.ClearSelection();
         }
     }
 }
