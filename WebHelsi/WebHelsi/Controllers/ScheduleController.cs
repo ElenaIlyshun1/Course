@@ -34,6 +34,8 @@ namespace WebHelsi.Controllers
                 p => new ScheduleViewModel
                 {
                     Id = p.Id,
+                    ClientId = p.ClientId,
+                    DoctorId = p.DoctorId,
                     ScheduleDateIn = p.ScheduleDateIn
                 }).ToList();
             return Ok(model);
